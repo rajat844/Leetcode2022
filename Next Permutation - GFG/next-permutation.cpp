@@ -11,8 +11,16 @@ class Solution{
 public:
     vector<int> nextPermutation(int N, vector<int> arr){
         // code here
-        next_permutation(arr.begin(),arr.end());
+        int index1 = N-2;
+        while(index1 >= 0 and arr[index1] >= arr[index1+1]) index1--;
+        if(index1 != -1){
+            int index2 = N-1;
+            while(index2 >= 0 and arr[index2] < arr[index1]) index2--;
+            swap(arr[index1],arr[index2]);
+        }
+        reverse(arr.begin()+index1+1,arr.end());
         return arr;
+
     }
 };
 

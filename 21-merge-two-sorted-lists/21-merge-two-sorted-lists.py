@@ -5,9 +5,6 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        if None in (list1,list2):
-            return list1 or list2
-        
         head = value = ListNode(0)
         
         while list1 and list2 :

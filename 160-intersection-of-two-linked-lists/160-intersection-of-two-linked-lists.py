@@ -9,16 +9,8 @@ class Solution:
         
         dummy1,dummy2 = headA,headB
         
-        while(dummy1 != dummy2):
-            if dummy1: 
-                dummy1 = dummy1.next 
-            else :
-                dummy1 = headB
-            
-            if dummy2 :
-                dummy2 = dummy2.next
-            else :
-                dummy2 = headA
-        
+        while dummy1 is not dummy2:
+            dummy1 = headB if dummy1 is None else dummy1.next
+            dummy2 = headA if dummy2 is None else dummy2.next        
         return dummy1
         

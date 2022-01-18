@@ -18,8 +18,7 @@ def flatten(root):
     return root
 
 def mergeTwoLL(a,b):
-    temp = Node(0)
-    res = temp
+    res = temp = Node(0)
     while(a!=None and b!=None):
         if(a.data<b.data): 
             temp.bottom= a 

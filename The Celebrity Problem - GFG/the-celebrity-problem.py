@@ -6,9 +6,10 @@ class Solution:
     def celebrity(self, M, n):
         # code here 
         st = deque()
+        
         for i in range(n):
             st.append(i)
-        
+            
         while len(st) >= 2:
             a = st.pop()
             b = st.pop()
@@ -17,21 +18,19 @@ class Solution:
                 st.append(b)
             else :
                 st.append(a)
-                
         
         x = st.pop()
         
         for i in range(n):
             if M[x][i] == 1:
                 return -1
-        
-        for i in range(n):
-            if i!= x:
-                if M[i][x] == 0:
+            
+            if i != x :
+               if M[i][x] == 0:
                     return -1
+        
         return x
-                
-                
+            
             
                 
             

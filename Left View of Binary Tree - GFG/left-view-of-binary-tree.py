@@ -32,18 +32,14 @@ def LeftView(root):
             ans.append(currNode.data)
         
         if currNode :
-            if currNode.left :
                 st.append(currNode.left)
                 level.append(currLevel + 1)
-            if currNode.right:
                 st.append(currNode.right)
                 level.append(currLevel + 1)
             
     return ans
         
-        
     
-    # code here
 
 #{ 
 #  Driver Code Starts

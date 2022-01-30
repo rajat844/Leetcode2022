@@ -8,20 +8,21 @@ class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         dict = {}
         for i in range(len(inorder)):
-                dict[inorder[i]] = i
-        
-        def helper(prestart,preend,instart,inend):
-            if prestart > preend or instart > inend:
+            dict[inorder[i]] = i
+            
+        def helper(instart,inend,prestart,preend):
+            if instart > inend or prestart > preend:
                 return None
             
             root = TreeNode(preorder[prestart])
             
             inroot = dict[root.val]
-            numsleft = inroot-instart
+            numleft = inroot-instart
             
-            root.left = helper(prestart+1,prestart+numsleft,instart,inroot-1)
-            root.right = helper(prestart+numsleft+1,preend,inroot+1,inend)
+            root.left = helper(instart,inroot-1,prestart+1,prestart+numleft)
+            root.right = helper(inroot+1,inend,prestart+numleft+1,preend)
             return root
-            
-        root = helper(0,len(preorder)-1,0,len(inorder)-1)
+        
+        root = helper(0,len(inorder) - 1,0,len(preorder)-1)
         return root
+            

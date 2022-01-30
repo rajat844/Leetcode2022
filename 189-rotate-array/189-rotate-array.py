@@ -3,6 +3,14 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        for i in range(k):
-            x = nums.pop()
-            nums.insert(0,x)
+        def reverse(start,end):
+            while start < end:
+                x = nums[start]
+                nums[start] = nums[end]
+                nums[end] = x
+                start += 1
+                end -= 1
+        k %= len(nums)     
+        reverse(0,len(nums)-1)
+        reverse(0,k-1)
+        reverse(k,len(nums)-1)

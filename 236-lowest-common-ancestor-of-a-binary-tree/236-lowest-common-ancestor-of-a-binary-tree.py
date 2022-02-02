@@ -14,11 +14,14 @@ class Solution:
             
             x = helper(root.left)
             y = helper(root.right)
-            if (x and y) or (root.val == p.val or root.val ==q.val):
+            
+            if (x and y) or (root.val == p.val or root.val == q.val):
                 return root
+            
             elif (x or y):
-                return x or y
+                return (x or y)
             else :
                 return None
-        x = helper(root)
-        return x
+        
+        ans = helper(root)
+        return ans

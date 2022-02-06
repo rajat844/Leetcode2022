@@ -3,31 +3,24 @@ class Solution:
     
     #Function to detect cycle in an undirected graph.
 	def isCycle(self, V, adj):
-		#Code here
-		def detectCycle(i):
-		    vis[i-1] = True 
-		    st = deque()
-		    st.append((i,-1))
-		    
-		    while len(st) > 0:
-		        node,parent = st.popleft()
-		        
-		        for x in adj[node]:
-		            if vis[x - 1] is True :
-		                if x != parent:
-		                    return True
-		            else:
-		                vis[x-1] = True
-		                st.append((x,node))
-		    return False 
-		    
-		vis = [False] * V
+		vis = [0]*V
 		
-		for i in range(1,V):
-		    if vis[i-1] == False:
-		        if detectCycle(i) : return True
+		def dfs(cur, parent):
+		    vis[cur] = 1
 		    
-	    return False
+		    for i in adj[cur]:
+		        if not vis[i]:
+		            if dfs(i, cur): return True
+		        elif i != parent:
+		            return True
+		            
+		    return False
+		
+		for i in range(V):
+		    if not vis[i]:
+		        if dfs(i, -1): return True
+		        
+		return False
 
 #{ 
 #  Driver Code Starts

@@ -2,29 +2,25 @@ from collections import deque
 class Solution:
 	def isBipartite(self, V, adj):
 		#code here
-		def bfs(node):
-		    st = deque([(node,0)])
-		    vis[node] = 0
+		def dfs(node,color):
+		    vis[node] = color
 		    
-		    while len(st) > 0:
-		        curr,color = st.popleft()
-		        for x in adj[curr]:
-		            if vis[x] == -1:
-		                if color == 0:
-		                    st.append((x,1))
-		                    vis[x] = 1
-		                if color == 1:
-		                    st.append((x,0))
-		                    vis[x] = 0
-		            elif vis[x] == color:
-		                return False
-		                
+		    for x in adj[node]:
+		        if vis[x] == -1:
+		            if color == 0:
+		                if dfs(x,1) == False:
+		                    return False
+		            else :
+		                if dfs(x,0) == False:
+		                    return False
+		        elif(vis[x] == color) :
+		            return False
 		    return True
 		
 		vis = [-1]*V
 		for i in range(V):
 		    if vis[i] == -1:
-		        if bfs(i) == False:
+		        if dfs(i,0) == False:
 		            return False
 		
 		return True

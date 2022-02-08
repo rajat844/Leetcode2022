@@ -1,5 +1,5 @@
 import math
-from collections import deque
+from queue import PriorityQueue
 class Solution:
 
     #Function to find the shortest distance of all the vertices
@@ -7,18 +7,16 @@ class Solution:
     def dijkstra(self, V, adj, S):
         #code here
         dist = [math.inf] * V
-        q = deque()
+        q = PriorityQueue()
         dist[S] = 0
-        q.append(S)
-        while len(q) > 0:
-            node = q.popleft()
-            d = dist[node]
-            
+        q.put((0,S))
+        while not q.empty() > 0:
+            d,node= q.get()
             if d != math.inf:
                 for x in adj[node]:
                     if dist[x[0]] > d + x[1]:
                         dist[x[0]] = min(dist[x[0]],d+x[1])
-                        q.append(x[0])
+                        q.put((dist[x[0]],x[0]))
                     
         return dist
 #{ 

@@ -6,36 +6,29 @@ class Solution:
     #Function to find sum of weights of edges of the Minimum Spanning Tree.
     def spanningTree(self, V, adj):
         #code here
-        keyArr = [math.inf]*V
-        parentArr = [-1]*V
-        isMST = [False]*V
-        
-        keyArr[0] = 0
+        keyArr = [math.inf] * V
+        parentArr = [-1] * V
+        isMst = [False] * V
         
         q = PriorityQueue()
+        
+        keyArr[0] = 0
         q.put((0,0))
         
-        while not q.empty() :
-            currKey, node = q.get()
-            isMST[node] = True
+        while q.empty() == False:
+            Val, node = q.get()
+            isMst[node] = True
             
             for x in adj[node]:
-                childnode = x[0]
-                childkey = x[1]
+                chNode = x[0]
+                chKey = x[1]
                 
-                if isMST[childnode] == False and keyArr[childnode] > childkey:
-                    keyArr[childnode] = childkey
-                    q.put((childkey,childnode))
-                    parentArr[childnode] = node
-        
+                if isMst[chNode] == False and keyArr[chNode] > chKey:
+                    keyArr[chNode] = chKey
+                    parentArr[chNode] = node
+                    q.put((chKey,chNode))
+                    
         return sum(keyArr)
-        
-        
-                
-                
-        
-        
-        
 
 #{ 
 #  Driver Code Starts

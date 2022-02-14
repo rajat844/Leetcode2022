@@ -1,34 +1,53 @@
 #User function Template for python3
-import math
-from queue import PriorityQueue
 class Solution:
-    
-    #Function to find sum of weights of edges of the Minimum Spanning Tree.
     def spanningTree(self, V, adj):
-        #code here
-        keyArr = [math.inf] * V
-        parentArr = [-1] * V
-        isMst = [False] * V
+        # sorting the adj nodes according to cost/ weight 
+        Adj = []
+        for node in range(V):
+            for dest, cost in adj[node]:
+                Adj.append([node, dest, cost])
+        Adj.sort(key = lambda x : x[2])  
         
-        q = PriorityQueue()
-        
-        keyArr[0] = 0
-        q.put((0,0))
-        
-        while q.empty() == False:
-            Val, node = q.get()
-            isMst[node] = True
+        # creating parent and rank arr
+        parent_arr = []
+        rank_arr = [0]*V
+        for node in range(V):
+            parent_arr.append(node)
             
-            for x in adj[node]:
-                chNode = x[0]
-                chKey = x[1]
-                
-                if isMst[chNode] == False and keyArr[chNode] > chKey:
-                    keyArr[chNode] = chKey
-                    parentArr[chNode] = node
-                    q.put((chKey,chNode))
-                    
-        return sum(keyArr)
+        # Disjoint set data structure 
+        def findParent(node):
+            if node == parent_arr[node]:
+                return node
+            parent_arr[node] = findParent(parent_arr[node])
+            return parent_arr[node]
+            
+        def union(node1, node2):
+            node1 = findParent(node1)
+            node2 = findParent(node2)
+            
+            if rank_arr[node1] < rank_arr[node2]:
+                parent_arr[node1] = node2
+            elif rank_arr[node1] > rank_arr[node2]:
+                parent_arr[node2] = node1
+            else:
+                parent_arr[node2] = node1
+                rank_arr[node1]+=1
+        
+
+        min_cost = 0
+        res_tree = [] # this is optional this will store the tree itself
+    
+        for arr in Adj:
+            src = arr[0]
+            dest = arr[1]
+            cost = arr[2]
+            if findParent(src)!=findParent(dest):
+                min_cost += cost
+                res_tree.append((src, dest))
+                union(src, dest)
+        return min_cost
+            
+        #code here
 
 #{ 
 #  Driver Code Starts

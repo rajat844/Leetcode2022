@@ -1,25 +1,28 @@
 #User function Template for python3
-class Solution:        
+
+class Solution:
+    
+    #Function to return max value that can be put in knapsack of capacity W.
     def knapSack(self,W, wt, val, n):
-        dp = [[-1 for i in range(W+1)] for j in range(n+1)]
-        # code here
-        def helper(W,n):
-            if W == 0 or n == 0:
+        dp = [[-1 for i in range(W+1)]for j in range(n+1)]
+        
+        def helper(n,W):
+            if n == 0 or W == 0:
                 return 0
-            
+                
             if dp[n][W] != -1:
                 return dp[n][W]
                 
-            elif wt[n-1] > W :
-                dp[n][W] = helper(W,n-1)
+            if W < wt[n-1]:
+                dp[n][W] = helper(n-1,W)
                 return dp[n][W]
-            else:
-                dp[n][W] =  max(val[n-1] + helper(W-wt[n-1],n-1),helper(W,n-1))
+                
+            else :
+                dp[n][W] = max(helper(n-1,W) , val[n-1] + helper(n-1,W-wt[n-1]))
                 return dp[n][W]
-            
-        
-
-        return helper(W,n)
+                
+        return helper(n,W)
+        # code here
 
 #{ 
 #  Driver Code Starts

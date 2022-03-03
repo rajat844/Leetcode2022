@@ -6,7 +6,7 @@ class Solution:
 
         for i in range(1, amount+1):
             for j in range(len(coins)):
-                if coins[j] <= amount:
+                if coins[j] <= i:
                     if dp[i-coins[j]] != math.inf and dp[i-coins[j]] + 1 < dp[i]:
                         dp[i] = dp[i-coins[j]] + 1
 

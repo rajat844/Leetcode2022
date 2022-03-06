@@ -4,25 +4,40 @@ class Solution:
     def matrixMultiplication(self, N, arr):
         # code here
         dp = [[-1 for j in range(N)]for i in range(N)]
-        def solve(i,j):
-            if i >= j :
-                dp[i][j] = 0
-                return dp[i][j]
+        # def solve(i,j):
+        #     if i >= j :
+        #         dp[i][j] = 0
+        #         return dp[i][j]
             
-            if dp[i][j] != -1:
-                return dp[i][j]
+        #     if dp[i][j] != -1:
+        #         return dp[i][j]
              
-            ans = sys.maxsize   
+        #     ans = sys.maxsize   
             
-            for k in range(i,j):
-                temp = solve(i,k) + solve(k+1,j) + arr[i-1] * arr[k] * arr[j]
+        #     for k in range(i,j):
+        #         temp = solve(i,k) + solve(k+1,j) + arr[i-1] * arr[k] * arr[j]
                 
-                ans = min(temp,ans)
+        #         ans = min(temp,ans)
             
-            dp[i][j] = ans
-            return dp[i][j]
+        #     dp[i][j] = ans
+        #     return dp[i][j]
             
-        return solve(1,N-1)
+        # return solve(1,N-1)
+        
+        for i in range(N):
+            dp[i][i] = 0
+            
+        for i in range(N-1,0,-1):
+            for j in range(i+1,N,1):
+                ans = sys.maxsize
+                for k in range(i,j):
+                    temp = dp[i][k] + dp[k+1][j] + arr[i-1] * arr[k] * arr[j]
+                    
+                    ans = min(temp,ans)
+                dp[i][j] = ans
+        
+        return dp[1][N-1]
+                    
 
 #{ 
 #  Driver Code Starts

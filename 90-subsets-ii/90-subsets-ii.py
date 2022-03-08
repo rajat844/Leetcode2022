@@ -14,8 +14,6 @@ class Solution:
                 return
 
             for index in range(i, n):
-                if index > i and nums[index] == nums[index-1]:
-                    continue
                 s.append(nums[index])
                 helper(s,index+1)
                 s.pop()            

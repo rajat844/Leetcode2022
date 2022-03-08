@@ -1,52 +1,42 @@
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
-        board =[['.' for i in range(n)]for j in range (n)]
         ans = []
+        board = [["."for i in range(n)]for i in range(n)]
         
-        def issafe(col,row):
-            duplrow = row
-            duplcol = col
-            
+        def isSafe(row,col):
+            tem_row,tem_col = row,col
             while row >= 0 and col >= 0:
                 if board[row][col] == 'Q':
                     return False
                 row -= 1
                 col -= 1
-                
-            row = duplrow
-            col = duplcol
             
+            row,col = tem_row,tem_col
             while col >= 0:
                 if board[row][col] == 'Q':
                     return False
                 col -= 1
-                
-            row = duplrow
-            col = duplcol
             
-            while col >= 0 and row < n:
+            row,col = tem_row,tem_col
+            while row<n and col >= 0:
                 if board[row][col] == 'Q':
                     return False
                 col -= 1
                 row += 1
-                
-            row = duplrow
-            col = duplcol
+            
             return True
-                
+            
         def helper(col):
-            if col == n:
+            if n == col:
                 t = [''.join(row) for row in board]
                 ans.append(t)
-                return
+                return 
             for row in range(n):
-                if(issafe(col,row)):
+                if isSafe(row,col):
                     board[row][col] = 'Q'
                     helper(col+1)
                     board[row][col] = '.'
-                    
         helper(0)
         return ans
             
-                        
         

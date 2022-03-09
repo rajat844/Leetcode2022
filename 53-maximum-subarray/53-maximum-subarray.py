@@ -2,18 +2,17 @@ import math
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         finalsum = -math.inf
-        sumtillnow = 0
-        
+        tillnow = 0
         for i in range(len(nums)):
-            if sumtillnow > 0:
-                sumtillnow += nums[i]
+            if tillnow <= 0:
+                tillnow = nums[i]
+            else:
+                tillnow += nums[i]
             
-            else :
-                sumtillnow = nums[i]
+            finalsum = max(tillnow,finalsum)
             
-            finalsum = max(finalsum,sumtillnow)
-        
         return finalsum
+            
         
         
         

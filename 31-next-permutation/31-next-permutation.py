@@ -3,25 +3,26 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        i = j = len(nums) -1 
-        n = len(nums)
-        while i > 0:
-            if nums[i-1] < nums[i]:
+        first = -1
+        second = -1
+        
+        for i in range(len(nums)-2,-1,-1):
+            if nums[i] < nums[i+1]:
+                first = i
                 break
-            i -= 1
-            
-        if i == 0:
-            nums.reverse()
-            
-        else :
-            i = i-1
-            
-            while j > i:
-                if nums[j] > nums[i]:
+                
+        if first == -1:
+            return nums.reverse()
+        
+        else:
+            for i in range(len(nums)-1,i,-1):
+                if nums[i] > nums[first]:
+                    second = i
                     break
-                j -= 1
             
-            nums[i],nums[j] = nums[j],nums[i]
-            nums[i+1:] = nums[i+1:][::-1]
+            nums[first],nums[second] = nums[second],nums[first]
             
+            nums[first+1:] = nums[first+1:][::-1]
+        
         return nums
+            

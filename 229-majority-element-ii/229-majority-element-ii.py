@@ -7,33 +7,39 @@ class Solution:
         count2 = 0
         
         for i in range(len(nums)):
-            if nums[i] == ele1:
-                count1 += 1
-            elif nums[i] == ele2:
+           
+            if ele1 == nums[i]:
+                count1  += 1
+            
+            elif ele2 == nums[i]:
                 count2 += 1
+                
             elif count1 == 0:
-                ele1 = nums[i]
                 count1 += 1
+                ele1 = nums[i]
+            
             elif count2 == 0:
-                ele2 = nums[i]
                 count2 += 1
+                ele2 = nums[i]
+                
             else:
                 count1 -= 1
                 count2 -= 1
         
+        ans = []
         x = 0
         y = 0
         for i in range(len(nums)):
-            if nums[i] == ele1:
+            if ele1 == nums[i]:
                 x += 1
-            if nums[i] == ele2 :
+            elif ele2 == nums[i]:
                 y += 1
-        ans = []
+        
         if x > len(nums)//3:
             ans.append(ele1)
         if y > len(nums)//3:
             ans.append(ele2)
-        
+            
         return ans
             
-            
+                

@@ -9,19 +9,15 @@ class Solution:
             return None
         
         cnt = head
-        
         for i in range(n):
             cnt = cnt.next
-            
+        
         if not cnt:
             return head.next
-        
-        crr = head
+        crr = head   
         while cnt.next:
             cnt = cnt.next
             crr = crr.next
-        
-        crr.next = crr.next.next
-
-        return head
             
+        crr.next = crr.next.next
+        return head

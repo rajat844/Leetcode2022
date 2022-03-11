@@ -6,10 +6,13 @@ class Solution:
         for i in range(len(nums)):
             if count == 0:
                 ele = nums[i]
-            if nums[i] == ele:
                 count += 1
-            else : 
+            elif ele == nums[i]:
+                count += 1
+            else :
                 count -= 1
         
-        return ele
-        
+        if count > 0:
+            return ele
+        else :
+            return -1

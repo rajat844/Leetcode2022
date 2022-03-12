@@ -5,33 +5,27 @@
 #         self.next = next
 class Solution:
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
-        
-        if head is None or k < 2:
-            return head
-
-        dummy = ListNode(0)
-        dummy.next = head
-        pre = cur = pos = dummy
-        count = 0
-        while(cur.next):
+        count = 1
+        curr = head
+        while curr.next:
+            curr = curr.next
             count += 1
-            cur = cur.next
-
-        while count >= k:
-            cur = pre.next
-            pos = cur.next
-            for i in range(k-1):
-                cur.next = pos.next
-                pos.next = pre.next
-                pre.next = pos
-                pos = cur.next
-            pre = cur
-            count -= k
-
-        return dummy.next
-                
-                
-                
-                
+        
+        ans = prev = ListNode(0)
+        curr = head
+        nex = None
+        prev.next = curr
+        
+        x = count//k
+        for i in range(x):
+            for j in range(k-1):
+                nex = curr.next
+                curr.next = nex.next
+                nex.next = prev.next
+                prev.next = nex
+            prev = curr
+            curr = curr.next
+        
+        return ans.next
             
-                
+        

@@ -11,29 +11,29 @@ class Node:
         
 '''
 def flatten(root):
-    if(root is None or root.next is None):
-        return root
-    root.next = flatten(root.next)
-    root = mergeTwoLL(root,root.next)
-    return root
-
-def mergeTwoLL(a,b):
-    res = temp = Node(0)
-    while(a!=None and b!=None):
-        if(a.data<b.data): 
-            temp.bottom= a 
-            temp=temp.bottom
-            a=a.bottom
-        else:
-            temp.bottom=b 
-            temp=temp.bottom
-            b=b.bottom
-    temp.bottom = a or b
-    return res.bottom
-
-
-    
-    
+    #Your code her
+    def helper(head):
+        pre = None
+        if head.next:
+            pre = helper(head.next)
+        
+        new = temp = Node(0)
+        
+        while pre and head:
+            if pre.data >= head.data:
+                temp.bottom = head
+                temp = temp.bottom
+                head = head.bottom
+            else:
+                temp.bottom = pre
+                temp = temp.bottom
+                pre = pre.bottom
+        
+        temp.bottom = head or pre
+        return new.bottom
+        
+    return helper(root)
+        
 
 #{ 
 #  Driver Code Starts

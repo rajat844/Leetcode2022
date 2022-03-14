@@ -1,16 +1,23 @@
 class Solution:
     def combinationSum2(self, candidates, target):
-        ret = []
-        self.dfs(sorted(candidates), target, 0, [], ret)
-        return ret
-    
-    def dfs(self, nums, target, idx, path, ret):
-        if target <= 0:
-            if target == 0:
-                ret.append(path)
-            return 
-        for i in range(idx, len(nums)):
-            if i > idx and nums[i] == nums[i-1]:
-                continue
-            self.dfs(nums, target-nums[i], i+1, path+[nums[i]], ret)
+        ans = []
+        candidates.sort()
+        
+        def helper(i,s):
+            if i == len(candidates) or sum(s) >= target:
+                if sum(s) == target:
+                    ans.append(s[::])
+                return
+            
+            s.append(candidates[i])
+            helper(i+1,s)
+            s.pop()
+            
+            while i+1 < len(candidates) and candidates[i] == candidates[i+1]:
+                i += 1
+            
+            helper(i+1,s)
+            
+        helper(0,[])
+        return ans
         

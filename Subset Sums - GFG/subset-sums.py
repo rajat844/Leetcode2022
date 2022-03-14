@@ -3,16 +3,16 @@ class Solution:
 	def subsetSums(self, arr, N):
 		# code here
 		ans = []
-		def helper(i,s):
-		    if i == N:
+		def helper(n,s):
+		    if n == N:
 		        t = s
 		        ans.append(t)
-		        return 
-		    helper(i+1,s)
-		    helper(i+1,s + arr[i])
-	    helper(0,0)
-	    ans.sort()
-	    return ans
+		        return
+		    helper(n+1,s)
+		    helper(n+1,s+arr[n])
+
+		helper(0,0)
+		return ans
 		    
 
 #{ 

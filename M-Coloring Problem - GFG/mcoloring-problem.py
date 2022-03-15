@@ -4,19 +4,20 @@ from collections import defaultdict
 #that no two adjacent vertices of graph are coloured with same colour.
 def graphColoring(graph, m, N):
     color = [0 for i in range(N)]
-    
-    def allowed(node,col):
-        for k in range(N):
-            if k != node and graph[k][node] == 1 and color[k] == col:
+    def isSafe(node,col):
+        for i in range(N):
+            if i != node and graph[i][node] == 1 and color[i] == col:
                 return False
+        
         return True
-    
+        
+        
     def helper(node):
         if node == N:
             return True
-        
+            
         for i in range(1,m+1):
-            if allowed(node,i):
+            if isSafe(node,i):
                 color[node] = i
                 if helper(node+1):
                     return True
@@ -25,7 +26,6 @@ def graphColoring(graph, m, N):
         return False
         
     return helper(0)
-    
     #your code here
     
     

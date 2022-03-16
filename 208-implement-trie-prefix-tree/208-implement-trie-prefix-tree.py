@@ -1,18 +1,18 @@
 class Node:
     def __init__(self):
-        self.links = [None for i in range(26)]
+        self.st = [None for i in range(26)]
         self.flag = False
         
-    def containsKey(self,ch):
-        return self.links[ord(ch)-ord('a')] != None
+    def isContain(self,ch):
+        return self.st[ord(ch) - ord('a')] != None
     
-    def put(self,ch,node):
-        self.links[ord(ch)-ord('a')] = node
+    def put(self,ch):
+        self.st[ord(ch) - ord('a')] = Node()
         
     def get(self,ch):
-        return self.links[ord(ch) - ord('a')]
+        return self.st[ord(ch) - ord('a')] 
     
-    def setEnd(self):
+    def end(self):
         self.flag = True
         
     def isEnd(self):
@@ -26,30 +26,29 @@ class Trie:
     def insert(self, word: str) -> None:
         node = self.root
         for i in range(len(word)):
-            ch = word[i]
-            if not node.containsKey(ch):
-                node.put(ch,Node())
-            node = node.get(ch)
+            if not node.isContain(word[i]):
+                node.put(word[i])
+            node = node.get(word[i])
             
-        node.setEnd()
+        node.end()
 
     def search(self, word: str) -> bool:
         node = self.root
         for i in range(len(word)):
-            if not node.containsKey(word[i]):
+            if not node.isContain(word[i]):
                 return False
             node = node.get(word[i])
-        
+            
         return node.isEnd()
-        
+           
 
     def startsWith(self, prefix: str) -> bool:
         node = self.root
         for i in range(len(prefix)):
-            if not node.containsKey(prefix[i]):
+            if not node.isContain(prefix[i]):
                 return False
             node = node.get(prefix[i])
-        
+            
         return True
         
 

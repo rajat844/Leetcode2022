@@ -1,59 +1,55 @@
-class TrieNode:
+class Node:
     def __init__(self):
-        self.links = [None] * 26
+        self.links = [None for i in range(26)]
         self.flag = False
         
-    def isContains(self,ch):
-        if self.links[ord(ch) - ord('a')] == None:
-            return False
-        return True
-        
+    def containsKey(self,ch):
+        return self.links[ord(ch)-ord('a')] != None
+    
     def put(self,ch,node):
-        self.links[ord(ch) - ord('a') ] = node
+        self.links[ord(ch)-ord('a')] = node
         
     def get(self,ch):
         return self.links[ord(ch) - ord('a')]
     
-    def markEnd(self):
+    def setEnd(self):
         self.flag = True
         
     def isEnd(self):
         return self.flag
-
 class Trie:
 
     def __init__(self):
-        self.root = TrieNode()        
+        self.root = Node()
+        
 
     def insert(self, word: str) -> None:
         node = self.root
-        
         for i in range(len(word)):
-            if not node.isContains(word[i]):
-                node.put(word[i],TrieNode())
-            node = node.get(word[i])
-        
-        node.markEnd()
+            ch = word[i]
+            if not node.containsKey(ch):
+                node.put(ch,Node())
+            node = node.get(ch)
+            
+        node.setEnd()
 
     def search(self, word: str) -> bool:
-        node  = self.root
-        
+        node = self.root
         for i in range(len(word)):
-            if not node.isContains(word[i]):
+            if not node.containsKey(word[i]):
                 return False
             node = node.get(word[i])
-            
+        
         return node.isEnd()
         
 
     def startsWith(self, prefix: str) -> bool:
-        node  = self.root
-        
+        node = self.root
         for i in range(len(prefix)):
-            if not node.isContains(prefix[i]):
+            if not node.containsKey(prefix[i]):
                 return False
             node = node.get(prefix[i])
-            
+        
         return True
         
 

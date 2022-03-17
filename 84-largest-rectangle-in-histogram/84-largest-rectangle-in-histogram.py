@@ -1,20 +1,43 @@
 class Solution:
-    def largestRectangleArea(self, heights: List[int]) -> int:
-        stack = []
-        ans = 0
+    def largestRectangleArea(self, num: List[int]) -> int:
+        left_smaller = []
+        right_smaller = []
+        st = []
         
-        for i in range(len(heights)+1):
-            while(len(stack) > 0 and (i==len(heights) or heights[stack[-1]] >= heights[i])):
-                curr = stack[-1]
-                stack.pop()
-                h = heights[curr]
-                w = 0
-                if len(stack) == 0:
-                    w = i
-                else :
-                    w = i -stack[-1] -1
-                ans = max(ans,h*w)
-                
-            stack.append(i)
+        for i in range(len(num)):
+            while len(st) > 0 and num[i] <= num[st[-1]]:
+                st.pop()
+            
+            if len(st) == 0:
+                left_smaller.append(0)
+            else :
+                left_smaller.append(st[-1] + 1)
+            
+            st.append(i)
+            
+        st.clear()
+        
+        for i in range(len(num)-1,-1,-1):
+            while len(st) > 0 and num[i] <= num[st[-1]]:
+                st.pop()
+            
+            if len(st) == 0:
+                right_smaller.append(len(num) - 1)
+            else:
+                right_smaller.append(st[-1] -1)
+            
+            st.append(i)
+            
+        right_smaller = right_smaller[::-1]
+        
+        ans = 0
+        for i in range(len(num)):
+            ht = num[i]
+            wt = right_smaller[i] - left_smaller[i] + 1
+            h = ht*wt
+            ans = max(h,ans)
+            
         return ans
+            
+            
             

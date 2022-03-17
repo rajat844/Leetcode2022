@@ -6,23 +6,25 @@ class MyQueue:
         self.s2 = deque()
 
     def push(self, x: int) -> None:
-        while self.s1:
-            self.s2.append(self.s1.pop())
-        self.s2.append(x)
-        while self.s2:
-            self.s1.append(self.s2.pop())
+        self.s1.append(x)
         
     def pop(self) -> int:
-        return self.s1.pop()
+        if len(self.s2) == 0:
+            while len(self.s1) > 0:
+                self.s2.append(self.s1.pop())
+        return self.s2.pop()
         
     def peek(self) -> int:
-        return self.s1[-1]        
+        if len(self.s2) == 0:
+            while len(self.s1) > 0:
+                self.s2.append(self.s1.pop())
+        return self.s2[-1]
 
     def empty(self) -> bool:
-        if self.s1 :
-            return False
-        else:
+        if len(self.s1)== 0 and len(self.s2) == 0 :
             return True
+        else:
+            return False
         
 
 

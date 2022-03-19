@@ -14,7 +14,7 @@ class Solution:
                 k -= 1
                 currstr += s[k]
             
-            while j+1 < len(s) and k-1 >= 0  and j > 0 and k < len(s) and s[j+1] == s[k-1]:
+            while j+1 < len(s) and k-1 >= 0 and s[j+1] == s[k-1]:
                 j += 1
                 k -= 1
                 currstr = s[k] + currstr + s[j]
@@ -23,4 +23,7 @@ class Solution:
                 ans = currstr
         
         return ans
-                    
+                
+            
+            
+            

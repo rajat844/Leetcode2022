@@ -17,7 +17,7 @@ class Solution:
                 else :
                     dp[i][j] = max(dp[i-1][j],dp[i][j-1])
                     
-        ans = n - dp[i][j]
+        ans = n - dp[n][n]
         return ans
                 
 

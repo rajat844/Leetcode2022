@@ -22,14 +22,16 @@ class Solution:
         x = st.pop()
         
         for i in range(n):
-            if M[x][i] == 1:
+            if M[x][i] != 0:
                 return -1
-            
-            if i != x :
-               if M[i][x] == 0:
-                    return -1
+                
+        M[x][x] = 1
+        for i in range(n):  
+            if M[i][x]  != 1:
+                return -1
         
         return x
+            
             
             
                 

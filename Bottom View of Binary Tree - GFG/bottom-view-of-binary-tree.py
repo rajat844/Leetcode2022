@@ -1,26 +1,31 @@
 #User function Template for python3
-
+from collections import defaultdict,deque
 class Solution:
     def bottomView(self, root):
+        if root is None:
+            return None
         # code here
-       q = deque()
-       q.append([root,0])
-       ans = []
-       d = dict()
-       xl, xr = 999999999, 0
-       while len(q)>0:
-           curr = q.popleft()
-           xl = min(xl, curr[1])
-           xr = max(xr, curr[1])
-           d[curr[1]] = curr[0].data
-           if curr[0].left != None:
-               q.append([curr[0].left, curr[1]-1])
-           if curr[0].right != None:
-               q.append([curr[0].right, curr[1]+1])
-       for x in range(xl, xr+1):
-           ans.append(d[x])
-       return ans
+        q = deque()
+        q.append((root,0))
+        ans = []
+        d = dict()
+        xl, xr = 999999999, 0
         
+        
+        while len(q)>0:
+            node,cordinate = q.popleft()
+            xl = min(xl, cordinate)
+            xr = max(xr, cordinate)
+            d[cordinate] = node.data
+            if node.left != None:
+                q.append((node.left, cordinate-1))
+            if node.right != None:
+                q.append((node.right,cordinate+1))
+                
+                
+        for x in range(xl, xr+1):
+            ans.append(d[x])
+        return ans
 
 #{ 
 #  Driver Code Starts

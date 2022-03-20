@@ -11,35 +11,29 @@ class Node:
 '''
 
 #Function to return a list containing elements of left view of the binary tree.
-from collections import deque
 def LeftView(root):
-    maxLevel = -1
-    level = deque()
-    st = deque()
-    level.append(0)
-    st.append(root)
-    ans = []
-    
-    
-    while len(st) > 0:
-        currLevel = level[0]
-        currNode = st[0]
-        level.popleft()
-        st.popleft()
+      maxheight = -1
+      left = []
+      
+      def helper(node,height):
+          nonlocal maxheight
+          if node is None:
+             return
+         
+          if height > maxheight:
+             maxheight += 1
+             left.append(node.data)
+          helper(node.left,height+1)
+          helper(node.right,height+1)
+      
+      helper(root,0)
+      return left
+      
         
-        if currNode and currLevel > maxLevel:
-            maxLevel = currLevel
-            ans.append(currNode.data)
-        
-        if currNode :
-                st.append(currNode.left)
-                level.append(currLevel + 1)
-                st.append(currNode.right)
-                level.append(currLevel + 1)
-            
-    return ans
-        
+             
+          
     
+    # code here
 
 #{ 
 #  Driver Code Starts

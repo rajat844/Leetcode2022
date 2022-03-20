@@ -15,7 +15,7 @@ class Solution:
 
         while len(items) > 0:
             currNode, currX, currY = items.popleft()
-            storage[currX][currY].append((currNode.val))
+            storage[currX][currY].append(currNode.val)
 
             if currNode.left:
                 items.append((currNode.left, currX-1, currY+1))

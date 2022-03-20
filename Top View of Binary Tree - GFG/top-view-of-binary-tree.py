@@ -12,25 +12,32 @@ class Solution:
     #Function to return a list of nodes visible from the top view 
     #from left to right in Binary Tree.
     def topView(self,root):
-       q = deque()
-       q.append([root,0])
-       ans = []
-       d = dict()
-       xl, xr = 999999999, 0
-       while len(q)>0:
-           curr = q.popleft()
-           xl = min(xl, curr[1])
-           xr = max(xr, curr[1])
-           if curr[1] not in d:
-               d[curr[1]] = curr[0].data
-           if curr[0].left != None:
-               q.append([curr[0].left, curr[1]-1])
-           if curr[0].right != None:
-               q.append([curr[0].right, curr[1]+1])
-               
-       for x in range(xl, xr+1):
-           ans.append(d[x])
-       return ans
+        dic = {}
+        st = deque()
+        st.append((root,0))
+        
+        xl = 0
+        xr = 0
+        
+        while len(st) > 0:
+            node,cordinate = st.popleft()
+            xl = min(xl,cordinate)
+            xr = max(xr,cordinate)
+            
+            if cordinate not in dic:
+                dic[cordinate] = node.data
+            
+            if node.left:
+                st.append((node.left,cordinate - 1))
+            if node.right:
+                st.append((node.right,cordinate + 1))
+        
+        ans = []       
+        for x in range(xl,xr+1):
+            ans.append(dic[x])
+        
+        return ans
+            
         
         # code here
 

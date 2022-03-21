@@ -4,41 +4,44 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from collections import deque
+
 class Solution:
     def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        st = collections.deque()
+        st = deque()
         ans = []
-        lefttoright = True
+        ltor = True
         
         st.append(root)
         
-        while len(st) > 0:
-            currAns = []
-            currSt = collections.deque()
+        while len(st) > 0 :
+            smallans = []
+            temp = deque()
             
             while len(st) > 0:
-                currSt.append(st.popleft())
+                temp.append(st.popleft())
                 
-            if lefttoright is True:
-                while len(currSt) > 0 :
-                    node = currSt.popleft()
-                    if node :
-                        currAns.append(node.val)
+            if ltor == True:
+                while len(temp) > 0:
+                    node = temp.popleft()
+                    if node:
+                        smallans.append(node.val)
                         st.append(node.left)
                         st.append(node.right)
-            if lefttoright is False:
-                while len(currSt) > 0 :
-                    node = currSt.popleft()
+            
+            else:
+                while len(temp) > 0:
+                    node = temp.popleft()
                     if node:
-                        currAns.append(node.val)
+                        smallans.append(node.val)
                         st.append(node.right)
-                        st.append(node.left)                
+                        st.append(node.left)
             
-            if len(currAns) is not 0:
-                ans.append(currAns)
-                
-            lefttoright = not lefttoright
+            ltor = not ltor
             st.reverse()
-            
+            if len(smallans) > 0:
+                ans.append(smallans)
+        
         return ans
+                    
         

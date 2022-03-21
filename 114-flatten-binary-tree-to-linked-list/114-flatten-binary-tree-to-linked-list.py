@@ -5,19 +5,21 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def __init__(self):
-        self.prev = None
-        
     def flatten(self, root: Optional[TreeNode]) -> None:
         """
         Do not return anything, modify root in-place instead.
         """
-        if root is None :
-            return 
+        prev = None
         
-        self.flatten(root.right)
-        self.flatten(root.left)
-        root.right = self.prev
-        root.left = None
-        self.prev = root
+        def helper(root):
+            nonlocal prev
+            if root is None:
+                return 
+            helper(root.right)
+            helper(root.left)
+            root.right = prev
+            root.left = None
+            prev = root
         
+        helper(root)
+        return prev

@@ -7,11 +7,12 @@ class Node:
         self.right = right
         self.next = next
 """
-from collections import deque
+
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
         if root is None:
             return root
+        
         leftnode = root
         while leftnode.left:
             curr = leftnode

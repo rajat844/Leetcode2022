@@ -14,15 +14,14 @@ class Solution:
             if poststart > postend or instart > inend:
                 return None
             
-            root = TreeNode(postorder[postend])
+            node = TreeNode(postorder[postend])
             
-            inroot = dic[root.val]
-            rootleft = inroot-instart
+            x = dic[postorder[postend]]
+            num_ele = x-instart
             
-            root.left = helper(instart,inroot-1,poststart,poststart+rootleft-1)
-            root.right = helper(inroot+1,inend,poststart+rootleft,postend-1)
-            return root
-        
-        root = helper(0,len(inorder) -1,0,len(postorder) -1)
+            node.left = helper(instart,x-1,poststart,poststart+num_ele-1)
+            node.right = helper(x+1,inend,poststart+num_ele,postend-1)
+            
+            return node
+        root = helper(0,len(inorder)-1,0,len(postorder)-1)
         return root
-        

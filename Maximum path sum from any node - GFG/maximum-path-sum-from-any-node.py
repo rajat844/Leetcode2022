@@ -1,6 +1,4 @@
 #User function Template for python3
-
-
 '''
 class Node:
     def __init__(self,val):
@@ -14,23 +12,21 @@ class Solution:
     #Function to return maximum path sum from any node in a tree.
     def findMaxSum(self, root): 
         #Your code here
-        
-        def sumNode(root):
-            if not root:
+        def helper(node):
+            nonlocal maxans
+            if node is None:
                 return 0
-                
-            nonlocal maxSum
             
-            lsum = sumNode(root.left)
-            rsum = sumNode(root.right)
+            lh = helper(node.left)
+            rh = helper(node.right)
             
-            maxSum = max(maxSum,lsum+rsum+root.data)
-            return max( lsum+root.data,rsum+root.data,0)
+            maxans = max(maxans,lh+node.data+rh)
             
-        maxSum = -math.inf
-        x = sumNode(root)
-        return maxSum
-
+            return max(rh+node.data,lh+node.data,0)
+            
+        maxans = -math.inf
+        x = helper(root)
+        return maxans
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3

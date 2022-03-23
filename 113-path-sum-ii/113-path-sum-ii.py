@@ -8,34 +8,28 @@ class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
         if root is None:
             return []
-        def isLeaf(root):
-            if root.left == None and root.right == None:
+        def isleaf(node):
+            if node.left == None and node.right == None:
                 return True
+            return False
         
-        def helper(root,arr,Sum):
+        def helper(node,arr):
+            nonlocal ans
+            arr.append(node.val)
             
-            Sum = Sum + root.val
-            arr.append(root.val)
+            if isleaf(node) is True:
+                if sum(arr) == targetSum:
+                    ans.append(arr[::])
             
-            if isLeaf(root) == True:
-                if Sum == targetSum:
-                    x = []
-                    for i in range(len(arr)):
-                        x.append(arr[i])
-                    ans.append(x)
+            else:
+                if node.left:
+                    helper(node.left,arr)
+                if node.right:
+                    helper(node.right,arr)
             
-            else :
-                if root.left:
-                    helper(root.left,arr,Sum)
-                if root.right:
-                    helper(root.right,arr,Sum)
             arr.pop()
-            
-        ans = []
-        arr = []
-        helper(root,arr,0)
         
+        ans = []
+        helper(root,[])
         return ans
-                
-                
         

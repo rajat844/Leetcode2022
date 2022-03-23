@@ -5,20 +5,19 @@ class Solution:
         #Code here
         dic = {}
         ans = 0
-        curr = 0
-        
-        for i in range(len(arr)):
-            curr += arr[i]
+        sumnow = 0
+        for i in range(n):
+            sumnow += arr[i]
             
-            if curr == 0:
-                temp_ans = i+1
-                ans = max(temp_ans,ans)
+            if sumnow == 0:
+                temp = i+1
+                ans = max(temp,ans)
             else:
-                if curr not in dic:
-                    dic[curr] = i+1
-                else:
-                    temp_ans = i-dic[curr] + 1
-                    ans = max(temp_ans,ans)
+                if sumnow in dic:
+                    temp = i - dic[sumnow] + 1
+                    ans = max(temp,ans)
+                else :
+                    dic[sumnow] = i+1
                     
         return ans
             

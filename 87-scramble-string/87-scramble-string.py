@@ -5,25 +5,26 @@ class Solution:
         if (s1,s2) in self.dic:
             return self.dic[(s1,s2)]
         
-        if len(s1) != len(s2):
-            self.dic[(s1,s2)] = False
-            return self.dic[(s1,s2)]
-        
         if s1 == s2:
             self.dic[(s1,s2)] = True
-            return self.dic[(s1,s2)]
+            return True
         
+        if len(s1) != len(s2):
+            self.dic[(s1,s2)] = False
+            return False
+            
         if sorted(s1) != sorted(s2):
             self.dic[(s1,s2)] = False
-            return self.dic[(s1,s2)]
+            return False
         
-        for i in range(1, len(s1)):
-            cndn1 = self.isScramble(s1[:i], s2[:i]) and self.isScramble(s1[i:], s2[i:])
-            cndn2 = self.isScramble(s1[:i], s2[-i:]) and self.isScramble(s1[i:], s2[:-i])
-            if cndn1 or cndn2:
+        for i in range(1,len(s1)):
+            cndn1 = self.isScramble(s1[:i],s2[:i]) and self.isScramble(s1[i:],s2[i:])
+            cndn2 = self.isScramble(s1[:i],s2[-i:]) and self.isScramble(s1[i:],s2[:-i])
+            
+            if cndn1 or cndn2 :
                 self.dic[(s1,s2)] = True
-                return self.dic[(s1,s2)]
-        self.dic[(s1,s2)] = False
-        return self.dic[(s1,s2)]
+                return True
         
+        self.dic[(s1,s2)] = False
+        return False
         

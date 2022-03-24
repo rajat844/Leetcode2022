@@ -5,18 +5,19 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def helper(self,root: Optional[TreeNode]):
-        if root is None:
-            return
-        self.helper(root.left)
-        self.k -= 1
-        if self.k == 0:
-            self.res = root.val
-        self.helper(root.right)
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        self.k = k
-        self.res = None
-        self.helper(root)
-        return self.res
         
-        
+        def helper(node):
+            nonlocal k
+            nonlocal res
+            if node is None:
+                return
+            helper(node.left)
+            k -= 1
+            if k == 0:
+                res = node.val
+            helper(node.right)
+            
+        res = 0
+        helper(root)
+        return res

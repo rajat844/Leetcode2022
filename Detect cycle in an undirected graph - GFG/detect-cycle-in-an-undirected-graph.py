@@ -1,25 +1,25 @@
-from collections import deque
 class Solution:
     
     #Function to detect cycle in an undirected graph.
 	def isCycle(self, V, adj):
-		vis = [0]*V
-		
-		def dfs(cur, parent):
-		    vis[cur] = 1
+		#Code here
+		visited = [False for i in range(V)]
+		def helper(node,parent):
+		    visited[node] = True
 		    
-		    for i in adj[cur]:
-		        if not vis[i]:
-		            if dfs(i, cur): return True
-		        elif i != parent:
+		    for x in adj[node]:
+		        if visited[x] == False:
+		            if helper(x,node) == True:
+		                return True
+		        elif x != parent:
 		            return True
-		            
 		    return False
-		
+	        	
 		for i in range(V):
-		    if not vis[i]:
-		        if dfs(i, -1): return True
-		        
+		    if visited[i] == False:
+		        if helper(i,-1) == True:
+		            return True
+		 
 		return False
 
 #{ 

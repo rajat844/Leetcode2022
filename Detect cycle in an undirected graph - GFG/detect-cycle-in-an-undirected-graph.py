@@ -16,12 +16,11 @@ class Solution:
 		        
 		        for x in adj[currnode]:
 		            if visited[x] == False:
-		                st.append((x,currnode))
 		                visited[x] = True
-		            elif parent != x:
+		                st.append((x,currnode))
+		            elif x != parent:
 		                return True
-		    return False
-		
+		    return False 
 		
 		for i in range(V):
 		    if visited[i] == False:

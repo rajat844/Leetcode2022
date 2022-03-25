@@ -10,18 +10,18 @@ class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         if node is None:
             return None
+        
         st = {}
         
-        def helper(node):
-            if node in st:
-                return st[node]
+        def helper(root):
+            if root in st:
+                return st[root]
             
-            cloneNode = Node(node.val)
-            st[node] = cloneNode
-            for x in node.neighbors:
-                cloneNode.neighbors.append(helper(x))
-            return cloneNode
+            cloneroot = Node(root.val)
+            st[root] = cloneroot
+            for x in root.neighbors:
+                cloneroot.neighbors.append(helper(x))
+            
+            return cloneroot
         
         return helper(node)
-            
-        

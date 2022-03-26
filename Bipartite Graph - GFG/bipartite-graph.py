@@ -2,31 +2,34 @@ from collections import deque
 class Solution:
 	def isBipartite(self, V, adj):
 		#code here
-		def dfs(node,color):
-		    vis[node] = color
-		    
-		    for x in adj[node]:
-		        if vis[x] == -1:
-		            if color == 0:
-		                if dfs(x,1) == False:
-		                    return False
-		            else :
-		                if dfs(x,0) == False:
-		                    return False
-		        elif(vis[x] == color) :
-		            return False
-		    return True
+		color = [-1 for i in range(V)]
 		
-		vis = [-1]*V
+		def helper(node):
+		    color[node] = 1
+		    st = deque()
+		    st.append(node)
+		    
+		    while len(st) > 0:
+		        currnode = st.popleft()
+		        for x in adj[currnode]:
+		            if color[x] == -1:
+		                color[x] = 1-color[currnode]
+		                st.append(x)
+		            elif color[x] == color[currnode]:
+		                return False
+		    return True
+		    
 		for i in range(V):
-		    if vis[i] == -1:
-		        if dfs(i,0) == False:
+		    if color[i] == -1:
+		        if helper(i) == False:
 		            return False
 		
 		return True
 		
-		        
-
+		
+		
+		
+		
 #{ 
 #  Driver Code Starts
 if __name__ == '__main__':

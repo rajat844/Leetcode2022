@@ -1,24 +1,21 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        if not grid:
-            return 0
-    
-        rows, cols = len(grid), len(grid[0])
-    
-        def sink(r, c):
-            if 0 <= r < rows and 0 <= c < cols and grid[r][c] == '1':
-                grid[r][c] = '0'
-            
-                sink(r + 1, c)
-                sink(r - 1, c)
-                sink(r, c + 1)
-                sink(r, c - 1)
-    
-        cnt = 0 
-        for r in range(rows):
-            for c in range(cols):
-                if grid[r][c] == '1':
-                    sink(r, c)
-                    cnt += 1
-        return cnt
+        n = len(grid)
+        m = len(grid[0])
         
+        def helper(i,j):
+            if i >= 0 and j >= 0 and i < n and j < m and grid[i][j] == "1":
+                grid[i][j] = "0"
+                
+                helper(i-1,j)
+                helper(i,j-1)
+                helper(i+1,j)
+                helper(i,j+1)
+        
+        ans = 0
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j] == "1":
+                    helper(i,j)
+                    ans += 1
+        return ans

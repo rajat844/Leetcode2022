@@ -4,24 +4,29 @@ class Solution:
     #Function to return list containing vertices in Topological order.
     def topoSort(self, V, adj):
         # Code here
-        indeg = [0]*V
+        indeg = [0 for i in range(V)]
+        
         for i in range(V):
             for x in adj[i]:
                 indeg[x] += 1
-                
-        q = deque()
-        for i in range(V):
+        
+        st = deque()
+        for i in range(len(indeg)):
             if indeg[i] == 0:
-                q.append(i)
-        ans = []
-        while len(q) > 0:
-            node = q.popleft()
+                st.append(i)
+        
+        ans = []    
+        while(len(st)) > 0:
+            node = st.popleft()
             ans.append(node)
+            
             for x in adj[node]:
                 indeg[x] -= 1
                 if indeg[x] == 0:
-                    q.append(x)
+                    st.append(x)
                     
+        return ans
+            
                     
         return ans
 #{ 

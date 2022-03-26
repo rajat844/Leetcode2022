@@ -4,24 +4,22 @@ class Solution:
 		#code here
 		color = [-1 for i in range(V)]
 		
-		def helper(node):
-		    color[node] = 1
-		    st = deque()
-		    st.append(node)
+		def helper(node,cl):
+		    color[node] = cl
 		    
-		    while len(st) > 0:
-		        currnode = st.popleft()
-		        for x in adj[currnode]:
-		            if color[x] == -1:
-		                color[x] = 1-color[currnode]
-		                st.append(x)
-		            elif color[x] == color[currnode]:
+		    for x in adj[node]:
+		        if color[x] == -1:
+		            if helper(x,1-cl) == False:
 		                return False
+		        elif color[x] == cl :
+		            return False
 		    return True
+		    
+
 		    
 		for i in range(V):
 		    if color[i] == -1:
-		        if helper(i) == False:
+		        if helper(i,0) == False:
 		            return False
 		
 		return True

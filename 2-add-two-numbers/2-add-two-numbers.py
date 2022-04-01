@@ -9,22 +9,22 @@ class Solution:
         head = temp = ListNode(0)
         
         while l1 or l2:
-            l1sum , l2sum = 0,0
-            if l1 :
-                l1sum = l1.val
+            s = carry
+            if l1:
+                s += l1.val
                 l1 = l1.next
             if l2 :
-                l2sum = l2.val
+                s += l2.val
                 l2 = l2.next
             
-            currsum = l1sum + l2sum + carry
-            carry,x = divmod(currsum,10)
-            temp.next = ListNode(x)
+            x,y = divmod(s,10)
+            carry = x
+            temp.next = ListNode(y)
             temp = temp.next
-            
+        
         if carry != 0:
             temp.next = ListNode(carry)
             temp = temp.next
         
         return head.next
-                
+        

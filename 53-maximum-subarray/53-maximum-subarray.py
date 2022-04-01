@@ -8,9 +8,11 @@ class Solution:
                 tillnow = nums[i]
             else:
                 tillnow += nums[i]
+                
             
-            finalsum = max(tillnow,finalsum)
-            
+            if finalsum < tillnow:
+                finalsum = tillnow
+                  
         return finalsum
             
         

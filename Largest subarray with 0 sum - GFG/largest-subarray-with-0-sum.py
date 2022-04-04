@@ -4,22 +4,20 @@ class Solution:
     def maxLen(self, n, arr):
         #Code here
         dic = {}
-        ans = 0
         sumnow = 0
+        maxi = 0
+        
         for i in range(n):
             sumnow += arr[i]
             
             if sumnow == 0:
-                temp = i+1
-                ans = max(temp,ans)
+                maxi = i+1
+            elif sumnow in dic:
+                maxi = max(maxi,i-dic[sumnow])
             else:
-                if sumnow in dic:
-                    temp = i - dic[sumnow] + 1
-                    ans = max(temp,ans)
-                else :
-                    dic[sumnow] = i+1
-                    
-        return ans
+                dic[sumnow] = i
+        
+        return maxi
             
 #{ 
 #  Driver Code Starts

@@ -13,18 +13,18 @@ class Solution:
         i = 1
         j = 0
         
-        while i < n and j<n:
+        while i < n and j < n:
             if arr[i] <= dep[j]:
                 pt += 1
                 i += 1
-            elif arr[i] > dep[j]:
+                ans = max(ans,pt)
+            else:
                 pt -= 1
                 j += 1
-            ans = max(ans,pt)
         
         return ans
         
-                
+        
 
 #{ 
 #  Driver Code Starts

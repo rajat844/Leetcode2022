@@ -6,11 +6,9 @@ class Solution:
 		left = True
 		
 		for i in range(1,n):
-		    if left == True and arr[i] < arr[i-1]:
+		    if (left == True and arr[i] < arr[i-1]) or (left == False and arr[i] > arr[i-1]):
 		        arr[i],arr[i-1] = arr[i-1],arr[i]
-		    if left == False and arr[i] > arr[i-1]:
-		        arr[i],arr[i-1] = arr[i-1],arr[i]
-		    
+		        
 		    left = not left
 		
 		return arr

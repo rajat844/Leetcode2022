@@ -6,15 +6,14 @@ class Solution:
     #Function to check whether a Binary Tree is BST or not.
     def isBST(self, root):
         #code here
-        def helper(node,upperbound,lowerbound):
+        def helper(node,upper,lower):
             if node is None:
                 return True
-            if node.data >= upperbound or node.data <= lowerbound:
+            if node.data <= lower or node.data >= upper :
                 return False
-            return helper(node.left,node.data,lowerbound) and helper(node.right,upperbound,node.data)
-                
-        return helper(root,math.inf,-math.inf)
-            
+            return helper(node.left,node.data,lower) and helper(node.right,upper,node.data)
+        
+        return helper(root,math.inf,0)
 
 
 #{ 

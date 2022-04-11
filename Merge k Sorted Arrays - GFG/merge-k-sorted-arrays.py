@@ -1,21 +1,11 @@
 #User function Template for python3
-import heapq
+from heapq import merge
 class Solution:
     #Function to merge k sorted arrays.
     def mergeKArrays(self, arr, k):
         # code here
         # return merged list
-        st = []
-        
-        n = len(arr)
-        for i in range(n):
-            for j in range(k):
-                st.append(arr[i][j])
-        heapq.heapify(st)
-        ans = []
-        while len(st) > 0:
-            ans.append(heapq.heappop(st))
-        return ans
+        return merge(*arr)
 
 #{ 
 #  Driver Code Starts

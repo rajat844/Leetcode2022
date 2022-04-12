@@ -1,27 +1,27 @@
 #User function Template for python3
 class Solution:
 
-	def printUnsorted(self,nums, n):
+	def printUnsorted(self,arr, n):
 		# code here
 		end = 0
-        mx = nums[0]
-        
-        for i in range(1,len(nums)):
-            if mx > nums[i]:
-                end = i
-            else :
-                mx = nums[i]
-        
-        start = 0
-        mn = nums[-1]
-        
-        for i in range(len(nums) - 2, -1, -1):
-            if mn < nums[i]:
-                start = i
-            else :
-                mn = nums[i]
-        return [start,end]
-
+		mn = arr[0]
+		
+		for i in range(1,n):
+		    if mn > arr[i]:
+		        end = i
+		    else :
+		        mn = arr[i]
+		
+		start = 0
+		mx = arr[n-1]
+		
+		for i in range(n-2,-1,-1):
+		    if mx < arr[i]:
+		        start = i
+		    else :
+		        mx = arr[i]
+		        
+		return [start,end]
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3

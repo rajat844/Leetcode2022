@@ -7,18 +7,16 @@ class Solution:
     def search(self,matrix, n, m, x): 
     	# code here 
     	i = 0
-    	j = m-1
+    	j = m - 1
     	
     	while i < n and j >= 0:
     	    if matrix[i][j] == x:
     	        return True
-    	    elif matrix[i][j] > x :
+    	    elif matrix[i][j] > x:
     	        j -= 1
-    	    else:
+    	    else :
     	        i += 1
-    	        
-    	return False
-    	    
+        return False
     	
 
 

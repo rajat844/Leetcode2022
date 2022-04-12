@@ -8,13 +8,16 @@ class Solution:
                 end = i
             else :
                 mx = nums[i]
-                
-        st = 0
+        
+        start = 0
         mn = nums[-1]
-        for i in range(len(nums) - 2, -1 ,-1):
+        
+        for i in range(len(nums) - 2, -1, -1):
             if mn < nums[i]:
-                st = i
+                start = i
             else :
                 mn = nums[i]
         
-        return end - st + 1
+        ans = end - start + 1
+        return ans
+        

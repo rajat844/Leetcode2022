@@ -5,24 +5,20 @@ class Solution:
     def topoSort(self, V, adj):
         # Code here
         ans = []
-        arr = [0 for i in range(V)]
-        for i in range(V):
-            for x in adj[i]:
-                arr[x] += 1
-        st = deque()       
-        for i in range(len(arr)):
-            if arr[i] == 0:
-                st.append(i)
-                
-        while len(st) > 0:
-            node = st.popleft()
-            ans.append(node)
+        visited = [False for i in range(V)]
+        
+        def dfs(node):
+            visited[node] = True
             
             for x in adj[node]:
-                arr[x] -= 1
-                if arr[x] == 0:
-                    st.append(x)
-        
+                if visited[x] == False:
+                    dfs(x)
+            ans.append(node)
+            
+        for i in range(V):
+            if visited[i] == False:
+                dfs(i)
+        ans.reverse()
         return ans
     
 #{ 

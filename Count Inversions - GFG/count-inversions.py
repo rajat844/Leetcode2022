@@ -4,51 +4,45 @@ class Solution:
     # arr[]: Input Array
     # N : Size of the Array arr[]
     #Function to count inversions in the array.
+
     def inversionCount(self, arr, n):
         # Your Code Here
-        def merge(low,mid,high):
-            inver = 0
-            i = low
+        def merge(start,mid,end):
+            nonlocal ans
+            st = []
+            i = start
             j = mid
             
-            temp = []
-            
-            while i <= mid -1  and j <= high :
+            while i < mid and j <= end:
                 if arr[i] <= arr[j]:
-                    temp.append(arr[i])
+                    st.append(arr[i])
                     i += 1
-                else :
-                    temp.append(arr[j])
+                else:
+                    st.append(arr[j])
                     j += 1
-                    inver += mid - i
-            
-            while i<= mid-1:
-                temp.append(arr[i])
+                    ans += mid - i
+            while i < mid :
+                st.append(arr[i])
                 i += 1
-            while j<= high:
-                temp.append(arr[j])
+            while j <= end:
+                st.append(arr[j])
                 j += 1
             
             a = 0
-            for i in range(low,high+1):
-                arr[i] = temp[a]
+            for i in range(start,end+1):
+                arr[i] = st[a]
                 a += 1
             
-            return inver
+        def mergeSort(start,end):
+            if start < end :
+                mid = (start + end)//2
+                mergeSort(start,mid)
+                mergeSort(mid+1,end)
                 
-        
-        def mergeSort(low,high):
-            inver = 0
-            if low < high:
-                mid = (low + high)//2
-                inver += mergeSort(low,mid)
-                inver += mergeSort(mid+1,high)
-                
-                inver += merge(low,mid+1,high)
-            
-            return inver
-            
-        return mergeSort(0,len(arr) - 1)
+                merge(start,mid+1,end)
+        ans = 0
+        mergeSort(0,n-1)
+        return ans
 
 #{ 
 #  Driver Code Starts

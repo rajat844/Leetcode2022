@@ -4,23 +4,20 @@ class Solution:
     
     #Function to find the maximum profit and the number of jobs done.
     def JobScheduling(self,Jobs,n):
-        Jobs.sort(key = lambda x : x.profit, reverse = True)
+        Jobs.sort(key = lambda x: x.profit,reverse = True)
         done = [False for i in range(n)]
         jobsdone = 0
         profit = 0
-
-        for i in range(n):
-            for j in range(min(n,Jobs[i].deadline) - 1,-1,-1):
-                if done[j] == False:
-                    jobsdone += 1
-                    profit += Jobs[i].profit
-                    done[j] = True
-                    break
-                
-        return [jobsdone,profit]
-                
-            
         
+        for i in range(n):
+            for j in range(min(n,Jobs[i].deadline) - 1, -1,-1):
+                if done[j] == False:
+                    done[j] = True
+                    profit += Jobs[i].profit
+                    jobsdone += 1
+                    break
+        
+        return [jobsdone,profit]
         
         # code here
 

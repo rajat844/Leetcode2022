@@ -1,31 +1,35 @@
 #User function Template for python3
+from collections import deque
 class Solution:
     #Function to detect cycle in a directed graph.
     def isCyclic(self, V, adj):
         # code here
-        visited = [False for i in range(V)]
-        currvisited = [False for i in range(V)]
-        
-        def dfs(node):
-            visited[node] = True
-            currvisited[node] = True
+        ans = []
+        arr = [0 for i in range(V)]
+        for i in range(V):
+            for x in adj[i]:
+                arr[x] += 1
+        st = deque()       
+        for i in range(len(arr)):
+            if arr[i] == 0:
+                st.append(i)
+                
+        while len(st) > 0:
+            node = st.popleft()
+            ans.append(node)
             
             for x in adj[node]:
-                if visited[x] == False:
-                    if dfs(x) == True:
-                        return True
-                elif currvisited[x] == True:
-                    return True
-            
-            currvisited[node] = False
+                arr[x] -= 1
+                if arr[x] == 0:
+                    st.append(x)
+        
+        ans.reverse()
+        if len(ans) == V:
             return False
+        return True
+            
         
-        for i in range(V):
-            if visited[i] == False:
-                if dfs(i) == True:
-                    return True
         
-        return False
         
             
             

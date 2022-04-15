@@ -6,22 +6,23 @@ class Solution:
     def bfsOfGraph(self, V, adj):
         # code here
         visited = [False for i in range(V)]
-        ans = []
-        q = deque()
-        q.append(0)
-        visited[0] = True
-        
-        while len(q) > 0:
-            node = q.popleft()
-            ans.append(node)
+        def bfs(node):
+            visited[node] = True
+            st = deque()
+            st.append(node)
             
-            for x in adj[node]:
-                if visited[x] == False:
-                    visited[x] = True
-                    q.append(x)
+            while len(st) > 0:
+                currnode = st.popleft()
+                ans.append(currnode)
+                for x in adj[currnode]:
+                    if visited[x] == False:
+                        visited[x] = True
+                        st.append(x)
+            
+        ans = []
+        bfs(0)
         
         return ans
-
 #{ 
 #  Driver Code Starts
 if __name__ == '__main__':

@@ -6,28 +6,28 @@ class Solution:
 		#Code here
 		visited = [False for i in range(V)]
 		
-		def helper(node):
+		def bfs(node):
 		    visited[node] = True
 		    st = deque()
-		    st.append((node,-1))
+		    
+		    st.append((-1,node))
 		    
 		    while len(st) > 0:
-		        currnode,parent = st.popleft()
-		        
+		        parent,currnode= st.popleft()
 		        for x in adj[currnode]:
 		            if visited[x] == False:
 		                visited[x] = True
-		                st.append((x,currnode))
+		                st.append((currnode,x))
 		            elif x != parent:
 		                return True
-		    return False 
-		
-		for i in range(V):
-		    if visited[i] == False:
-		        if helper(i) == True:
-		            return True
-		
-		return False
+		    return False
+	    
+	    for i in range(V):
+	        if visited[i] == False:
+	            if bfs(i) == True:
+	                return True
+	    return False
+		            
 
 #{ 
 #  Driver Code Starts

@@ -6,25 +6,20 @@ class Solution:
 		#Code here
 		visited = [False for i in range(V)]
 		
-		def bfs(node):
+		def dfs(node,parent):
 		    visited[node] = True
-		    st = deque()
 		    
-		    st.append((-1,node))
-		    
-		    while len(st) > 0:
-		        parent,currnode= st.popleft()
-		        for x in adj[currnode]:
-		            if visited[x] == False:
-		                visited[x] = True
-		                st.append((currnode,x))
-		            elif x != parent:
+		    for x in adj[node]:
+		        if visited[x] == False:
+		            if dfs(x,node) ==  True:
 		                return True
+		        elif x != parent :
+		            return True
 		    return False
 	    
 	    for i in range(V):
 	        if visited[i] == False:
-	            if bfs(i) == True:
+	            if dfs(i,-1) == True:
 	                return True
 	    return False
 		            

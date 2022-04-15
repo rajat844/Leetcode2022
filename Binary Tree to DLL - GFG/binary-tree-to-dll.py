@@ -12,6 +12,10 @@ class Node:
 #Function to convert a binary tree to doubly linked list.
 class Solution:
     def bToDLL(self,root):
+        # do Code here
+        head = None
+        tail = None
+        
         def helper(node):
             nonlocal head
             nonlocal tail
@@ -20,20 +24,21 @@ class Solution:
                 return 
             
             helper(node.left)
-            if head is None:
+            
+            if head == None:
                 head = node
                 tail = node
-            else :
-                node.left = tail
+            else:
                 tail.right = node
-                tail = tail.right
+                node.left = tail
+                tail = node
             
             helper(node.right)
-        # do Code here
-        head = None
-        tail = None
+        
         helper(root)
         return head
+        
+        
 
 
 #{ 

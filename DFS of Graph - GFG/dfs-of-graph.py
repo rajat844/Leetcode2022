@@ -6,21 +6,21 @@ class Solution:
     def dfsOfGraph(self, V, adj):
         # code here
         visited = [False for i in range(V)]
-        ans = []
-        def helper(node):
+        
+        def dfs(node):
             visited[node] = True
             ans.append(node)
             
             for x in adj[node]:
                 if visited[x] == False:
-                    helper(x)
+                    dfs(x)
         
+        ans = []
         for i in range(V):
             if visited[i] == False:
-                helper(i)
+                dfs(i)
         
         return ans
-        
         
 
 #{ 

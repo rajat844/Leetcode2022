@@ -1,38 +1,42 @@
 #User function Template for python3
-import math
+
 class Solution:
-    def median(self,A , r, c):
+    def median(self, matrix, r, c):
+        def helper(arr,k):
+            l = 0
+            h = len(arr)-1
+        
+            while l <= h:
+                mid = (l+h)>>1
+            
+                if arr[mid]<= k:
+                    l = mid +1
+                else :
+                    h = mid -1
+        
+            return l
+        
     	#code here 
+    	l = 1
+    	h = 2000
+    	
 
-        def num(x):
-            ans = 0
-            for i in range(n):
-                l = 0
-                h = m-1
-                while l <= h:
-                    mid = (l+h)//2
-                    if A[i][mid] <= x:
-                        l = mid+1
-                    else :
-                        h = mid -1
-                ans += l
-            return ans
-
-
-        l = 1
-        h = 2000
-        
-
-        n = len(A)
-        m = len(A[0])
-        
-        while l <= h:
-            mid = (l+h)//2
-            if num(mid) <= (n*m)//2:
-                l = mid+1
-            else:
-                h = mid-1
-        return l
+    	while l <= h:
+    	    mid = (l+h)>>1
+    	    
+    	    count = 0
+    	    for i in range(r):
+    	        count += helper(matrix[i],mid)
+    	    
+    	    if count <= (r*c)//2:
+    	        l = mid+1
+    	    else :
+    	        h = mid - 1
+    	
+    	return l
+    	        
+    	    
+    	
 
 #{ 
 #  Driver Code Starts

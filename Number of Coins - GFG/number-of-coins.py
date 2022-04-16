@@ -2,21 +2,25 @@
 import math
 class Solution:
 	def minCoins(self, coins, M, V):
-		# code here
-		coins.sort()
-		dp = [math.inf for i in range(V+1)]
+		# code 
+		coins.sort
+		dp = [math.inf for i in range(V + 1)]
+		
 		dp[0] = 0
 		
-		for i in range(V+1):
+		for i in range(1,V + 1):
 		    for j in range(M):
-		        if coins[j] <= V:
-		            if dp[i-coins[j]] != math.inf and dp[i] > 1 + dp[i-coins[j]]:
-		                dp[i] = dp[i-coins[j]] + 1
-		                
+		        if i >= coins[j] and dp[i-coins[j]] != math.inf and dp[i] > dp[i - coins[j]] + 1:
+		            dp[i] = dp[i - coins[j]] + 1
+		            
 		if dp[V] == math.inf:
 		    return -1
+		
 		return dp[V]
-		            
+		
+		        
+		
+		
 
 #{ 
 #  Driver Code Starts

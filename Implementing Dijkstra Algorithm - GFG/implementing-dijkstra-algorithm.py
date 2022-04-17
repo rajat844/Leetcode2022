@@ -1,24 +1,25 @@
-import math
-from queue import PriorityQueue
+import heapq,math
 class Solution:
-
     #Function to find the shortest distance of all the vertices
     #from the source vertex S.
     def dijkstra(self, V, adj, S):
         #code here
-        dist = [math.inf] * V
-        q = PriorityQueue()
-        dist[S] = 0
-        q.put((0,S))
-        while not q.empty() > 0:
-            d,node= q.get()
-            if d != math.inf:
+        ans = [math.inf for i in range(V)]
+        st = [(0,S)]
+        ans[S] = 0
+        heapq.heapify(st)
+        
+        while len(st) > 0:
+            distance,node = heapq.heappop(st)
+            
+            if distance != math.inf:
                 for x in adj[node]:
-                    if dist[x[0]] > d + x[1]:
-                        dist[x[0]] = min(dist[x[0]],d+x[1])
-                        q.put((dist[x[0]],x[0]))
-                    
-        return dist
+                    if ans[x[0]] > distance + x[1]:
+                        ans[x[0]] = distance + x[1]
+                        heapq.heappush(st,(ans[x[0]],x[0]))
+                        
+        return ans
+            
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3

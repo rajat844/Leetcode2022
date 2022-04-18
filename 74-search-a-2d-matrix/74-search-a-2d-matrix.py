@@ -3,18 +3,33 @@ class Solution:
         n = len(matrix)
         m = len(matrix[0])
         
-        i = 0
-        j = m -1
+        l = 0
+        h = n-1
         
-        while i < n and j >= 0:
-            if matrix[i][j] == target:
+        while  l <= h:
+            mid = (l+h)>>1
+            if matrix[mid][0] == target:
                 return True
-            elif matrix[i][j] > target:
-                j -= 1
+            elif matrix[mid][0] < target:
+                l = mid + 1
+            else:
+                h = mid - 1
+        
+        r = h
+        
+        l = 0
+        h = m-1
+        
+        while l <= h:
+            mid = (l+h) >>1
+            if matrix[r][mid] == target:
+                return True
+            elif matrix[r][mid] <= target:
+                l = mid + 1
             else :
-                i += 1
+                h = mid -1
         
         return False
-            
+                
             
         

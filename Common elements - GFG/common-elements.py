@@ -4,10 +4,10 @@ class Solution:
     def commonElements (self,A, B, C, n1, n2, n3):
         # your code here
         i,j,k=0,0,0
-        ans = set()
+        ans = []
         while i <n1 and j <n2 and k <n3:
             if A[i] == B[j] == C[k]:
-                ans.add(A[i])
+                ans.append(A[i])
                 i += 1
                 j += 1
                 k += 1
@@ -17,10 +17,12 @@ class Solution:
                 j += 1
             else:
                 k += 1
-        ans = list(ans)
-        ans.sort()
-        return ans
+                
+            while (i > 0 and i < n1  and A[i] == A[i-1]):
+                i += 1
+ 
         
+        return ans
                 
 
 #{ 

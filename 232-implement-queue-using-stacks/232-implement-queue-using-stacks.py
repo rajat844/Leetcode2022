@@ -1,30 +1,37 @@
-from collections import deque
 class MyQueue:
 
     def __init__(self):
-        self.s1 = deque()
-        self.s2 = deque()
+        self.st1 = []
+        self.st2 = []
 
     def push(self, x: int) -> None:
-        self.s1.append(x)
+        self.st1.append(x)
         
+
     def pop(self) -> int:
-        if len(self.s2) == 0:
-            while len(self.s1) > 0:
-                self.s2.append(self.s1.pop())
-        return self.s2.pop()
+        if len(self.st1)== 0 and len(self.st2) == 0 :
+            return None
+        if len(self.st2) == 0:
+            while len(self.st1) > 0:
+                self.st2.append(self.st1.pop())
         
+        return self.st2.pop()
+        
+
     def peek(self) -> int:
-        if len(self.s2) == 0:
-            while len(self.s1) > 0:
-                self.s2.append(self.s1.pop())
-        return self.s2[-1]
+        if len(self.st1)== 0 and len(self.st2) == 0 :
+            return None
+        if len(self.st2) == 0:
+            while len(self.st1) > 0:
+                self.st2.append(self.st1.pop())
+        
+        return self.st2[-1]
+        
 
     def empty(self) -> bool:
-        if len(self.s1)== 0 and len(self.s2) == 0 :
+        if len(self.st2)==0 and len(self.st1)== 0:
             return True
-        else:
-            return False
+        return False
         
 
 

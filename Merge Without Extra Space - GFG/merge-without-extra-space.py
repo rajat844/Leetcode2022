@@ -5,20 +5,21 @@ class Solution:
     #Function to merge the arrays.
     def merge(self,arr1,arr2,n,m):
         #code here
-        first = n-1
-        second = 0
+        i = n-1
+        j = 0
         
-        while first >= 0 and second <= m-1:
-            if arr1[first] > arr2[second]:
-                arr1[first],arr2[second] = arr2[second],arr1[first]
-                first -= 1
-                second += 1
-            else :
+        while i >= 0 and j < m:
+            if arr1[i] > arr2[j]:
+                arr1[i],arr2[j] = arr2[j],arr1[i]
+                i -= 1
+                j += 1
+            else:
                 break
         
         arr1.sort()
         arr2.sort()
-    
+        
+            
 
 
 #{ 

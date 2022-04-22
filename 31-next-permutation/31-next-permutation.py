@@ -6,23 +6,25 @@ class Solution:
         first = -1
         second = -1
         
-        for i in range(len(nums)-2,-1,-1):
+        i = len(nums) - 2
+        
+        while i >= 0 :
             if nums[i] < nums[i+1]:
                 first = i
                 break
+            i -= 1
                 
         if first == -1:
-            return nums.reverse()
+            nums = nums.reverse()
         
         else:
-            for i in range(len(nums)-1,i,-1):
+            
+            for i in range(len(nums)-1,first,-1):
                 if nums[i] > nums[first]:
                     second = i
                     break
             
             nums[first],nums[second] = nums[second],nums[first]
             
-            nums[first+1:] = nums[first+1:][::-1]
+            nums[first + 1:] = nums[first+1:][::-1]
         
-        return nums
-            

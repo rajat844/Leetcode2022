@@ -3,34 +3,29 @@
 class Solution:
     def findPath(self, m, n):
         # code here
+        def helper(i,j,s):
+            if 0 <= i < n and 0 <= j < n and m[i][j] == 1:
+                m[i][j] = 0
+                
+                if i == n-1 and j == n-1:
+                    m[i][j] = 1
+                    ans.append(s[::])
+                    return 
+            
+                helper(i+1,j,s+'D')
+                helper(i-1,j,s+'U')
+                helper(i,j+1,s+'R')
+                helper(i,j-1,s+'L')
+            
+                m[i][j] = 1
+        
         ans = []
-        def helper(row ,col,s):
-            if row == n-1 and col == n-1:
-                ans.append(s[::])
-                return 
-            
-            m[row][col] = 0
-            if row+1 < n and m[row+1][col] == 1:
-                s += "D"
-                helper(row+1,col,s)
-                s = s[:-1]
-            if row - 1 >= 0 and m[row-1][col] == 1:
-                s += "U"
-                helper(row-1,col,s)
-                s = s[:-1]
-            if col+1 < n and m[row][col+1] == 1:
-                s += "R"
-                helper(row,col+1,s)
-                s = s[:-1]
-            if col -1 >= 0 and m[row][col-1] == 1:
-                s+= "L"
-                helper(row,col-1,s)
-                s = s[:-1]
-            m[row][col] = 1
-            
         if m[0][0] == 1:
             helper(0,0,"")
         return ans
+        
+                
+
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3

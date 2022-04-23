@@ -2,33 +2,27 @@
 class Solution:
 
 	def rowWithMax1s(self,arr, n, m):
-	    def helper(currarr):
-	        x = len(currarr)
-	        l = 0
-	        h = len(currarr) - 1
-	        
-	        while l <= h:
-	            mid = (l+h)//2
-	            
-	            if currarr[mid] == 1 and (currarr[mid - 1] == 0 or mid == 0):
-	                return x - mid
-	            elif currarr[mid] == 1:
-	               h = mid - 1
-	            else:
-	               l = mid + 1
-	       
-	        return -1
-		
-		
-		tillnow = 0
-		rownum = -1
-		for i in range(len(arr)):
-		    x = helper(arr[i])
-		    if x > tillnow:
-		        tillnow = x
-		        rownum = i
-		return rownum 
+		# code here
+		def count(nums):
+		    l = 0
+		    h = m-1
 		    
+		    while l <= h:
+		        mid = (l+h) >> 1
+		        if nums[mid] == 0:
+		            l = mid + 1
+		        else :
+		            h = mid - 1
+		    return m - l
+		maxcount = 0
+		rownumber = -1
+		for i in range(n):
+		    cnt = count(arr[i])
+		    if cnt > maxcount:
+		        maxcount = cnt
+		        rownumber = i
+		
+		return rownumber
 
 #{ 
 #  Driver Code Starts

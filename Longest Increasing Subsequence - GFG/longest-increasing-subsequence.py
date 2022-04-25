@@ -3,15 +3,15 @@
 class Solution:
     
     #Function to find length of longest increasing subsequence.
-    def longestSubsequence(self,arr,n):
+    def longestSubsequence(self,a,n):
         # code here
         dp = [1 for i in range(n)]
         
         for i in range(n):
-            for j in range(0,i):
-                if arr[i] > arr[j]:
+            for j in range(i):
+                if a[i] > a[j]:
                     dp[i] = max(dp[i],1+dp[j])
-                    
+        
         return max(dp)
        
 

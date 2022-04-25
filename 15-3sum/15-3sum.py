@@ -3,27 +3,31 @@ class Solution:
         nums.sort()
         ans = []
         for i in range(len(nums)-2):
-            if  i > 0 and nums[i] == nums[i-1]:
+            if i > 0 and nums[i] == nums[i-1]:
                 continue
-            tf = 0 - nums[i]
-            x = i+1
-            y = len(nums)-1
+            x = 0 - nums[i]
             
-            while( x < y):
-                if nums[x] + nums[y] == tf:
-                    ans.append([nums[i],nums[x],nums[y]])
-                    temp = nums[x] 
-                    while nums[x] == temp and x < y:
-                        x += 1
-                    temp = nums[y]
-                    while nums[y] == temp and y > x:
-                        y -= 1
-                elif nums[x] + nums[y] > tf:
-                    y -= 1
-                else:
-                    x += 1
+            a = i+1
+            b = len(nums) - 1
+            
+            while a < b:
+                if nums[a] + nums[b] == x:
+                    ans.append([nums[i],nums[b],nums[a]])
+                    temp = nums[a]
+                    while a < b and nums[a] == temp:
+                        a += 1
+                    temp = nums[b]
+                    while b > a and nums[b] == temp:
+                        b -= 1
                         
+                elif nums[a] + nums[b] > x:
+                    b -=1
+                else :
+                    a += 1
+                
         return ans
+                
+                    
                     
                     
             

@@ -1,30 +1,33 @@
-from collections import defaultdict
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        adj = defaultdict(list)
-
-        for i in range(len(prerequisites)):
-            adj[prerequisites[i][0]].append(prerequisites[i][1])
-
-        visited = [False for i in range(numCourses)]
-        dfsvisited = [False for i in range(numCourses)]
-
-        def helper(node, parent):
+        def helper(node):
             visited[node] = True
-            dfsvisited[node] = True
-
+            loopvisited[node] = True
+            
             for x in adj[node]:
                 if visited[x] == False:
-                    if helper(x, node) == True:
+                    if helper(x) == True:
                         return True
-                elif dfsvisited[x] == True:
+                elif loopvisited[x] == True:
                     return True
-            dfsvisited[node] = False
+            
+            loopvisited[node] = False
             return False
-
+            
+            
+        adj = {}
+        for i in range(numCourses):
+            adj[i] = []
+        
+        for i in range(len(prerequisites)):
+            adj[prerequisites[i][1]].append(prerequisites[i][0])
+            
+        visited = [False for i in range(numCourses)]
+        loopvisited = [False for i in range(numCourses)]
+        
         for i in range(numCourses):
             if visited[i] == False:
-                if helper(i, -1) == True:
+                if helper(i) is True:
                     return False
-
+                
         return True

@@ -1,6 +1,4 @@
 #User function Template for python3
-
-
 '''
 
 class Node:
@@ -10,30 +8,35 @@ class Node:
         self.bottom=None
         
 '''
+
 def flatten(root):
-    #Your code her
-    def helper(head):
-        pre = None
-        if head.next:
-            pre = helper(head.next)
+    #Your code here
+    def helper(node):
+        if node is None:
+            return None
+        l1 = helper(node.next)
+        l2 = node
         
-        new = temp = Node(0)
-        
-        while pre and head:
-            if pre.data >= head.data:
-                temp.bottom = head
+        head = temp = Node(0)
+        while l1 and l2:
+            if l1.data <= l2.data :
+                temp.bottom = l1
                 temp = temp.bottom
-                head = head.bottom
-            else:
-                temp.bottom = pre
+                l1 = l1.bottom
+            else :
+                temp.bottom = l2
                 temp = temp.bottom
-                pre = pre.bottom
+                l2 = l2.bottom
+                
+        temp.bottom = l1 or l2
         
-        temp.bottom = head or pre
-        return new.bottom
-        
+        return head.bottom
+    
     return helper(root)
-        
+                
+    
+    
+    
 
 #{ 
 #  Driver Code Starts

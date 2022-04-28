@@ -3,22 +3,22 @@
 class Solution:
     def maxLen(self, n, arr):
         #Code here
-        dic = {}
-        sumnow = 0
-        maxi = 0
+        st = {}
+        ans = 0
+        currsum = 0
         
         for i in range(n):
-            sumnow += arr[i]
+            currsum += arr[i]
             
-            if sumnow == 0:
-                maxi = i+1
-            elif sumnow in dic:
-                maxi = max(maxi,i-dic[sumnow])
+            if currsum == 0:
+                ans = i + 1
+            elif currsum in st:
+                ans =max(ans,i- st[currsum])
             else:
-                dic[sumnow] = i
+                st[currsum] = i
         
-        return maxi
-            
+        return ans
+        
 #{ 
 #  Driver Code Starts
 if __name__=='__main__':

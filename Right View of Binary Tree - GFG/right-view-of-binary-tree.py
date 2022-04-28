@@ -13,24 +13,23 @@ class Node:
 class Solution:
     #Function to return list containing elements of right view of binary tree.
     def rightView(self,root):
-        
-        # code here
-        maxheight = -1
-        right = []
-        
         def helper(node,height):
             nonlocal maxheight
             if node is None:
                 return 
             if height > maxheight:
-                maxheight += 1
-                right.append(node.data)
+                maxheight = height
+                ans.append(node.data)
                 
-            helper(node.right,height + 1)
+            helper(node.right,height+1)
             helper(node.left,height+1)
             
+        ans = []
+        maxheight = -1
         helper(root,0)
-        return right
+        return ans
+        
+        # code here
 
 #{ 
 #  Driver Code Starts

@@ -1,43 +1,40 @@
 class Solution:
-    def largestRectangleArea(self, num: List[int]) -> int:
-        left_smaller = []
-        right_smaller = []
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        n = len(heights)
+        nexsmaller = []
+        st = []
+        for i in range(n-1,-1,-1):
+            while len(st) > 0 and heights[i] <= heights[st[-1]]:
+                st.pop()
+            
+            if len(st) == 0:
+                nexsmaller.append(n-1)
+            else:
+                nexsmaller.append(st[-1] - 1)
+            
+            st.append(i)
+            
+        nexsmaller = nexsmaller[::-1]   
+        prevsmaller = []
         st = []
         
-        for i in range(len(num)):
-            while len(st) > 0 and num[i] <= num[st[-1]]:
+        for i in range(n):
+            while len(st) > 0 and heights[i] <= heights[st[-1]]:
                 st.pop()
             
             if len(st) == 0:
-                left_smaller.append(0)
-            else :
-                left_smaller.append(st[-1] + 1)
+                prevsmaller.append(0)
             
-            st.append(i)
-            
-        st.clear()
-        
-        for i in range(len(num)-1,-1,-1):
-            while len(st) > 0 and num[i] <= num[st[-1]]:
-                st.pop()
-            
-            if len(st) == 0:
-                right_smaller.append(len(num) - 1)
             else:
-                right_smaller.append(st[-1] -1)
+                prevsmaller.append(st[-1] + 1 )
             
             st.append(i)
             
-        right_smaller = right_smaller[::-1]
-        
         ans = 0
-        for i in range(len(num)):
-            ht = num[i]
-            wt = right_smaller[i] - left_smaller[i] + 1
-            h = ht*wt
-            ans = max(h,ans)
-            
+        for i in range(n):
+            temp = heights[i] *(nexsmaller[i] - prevsmaller[i] + 1)
+            ans = max(temp,ans)
+        
         return ans
-            
             
             

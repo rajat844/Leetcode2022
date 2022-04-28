@@ -5,43 +5,49 @@ class Solution:
     #Function to find number of strongly connected components in the graph.
     def kosaraju(self, V, adj):
         # code here
-        visited  = [False for i in range(V)]
-        toposort = []
+        #topological sort
         def dfs(node):
             visited[node] = True
-            
             for x in adj[node]:
                 if visited[x] == False:
                     dfs(x)
-                    
-            toposort.append(node)
-        
+            revtopo.append(node)
+    
+        revtopo = []
+        visited = [False for i in range(V)]
         for i in range(V):
             if visited[i] == False:
                 dfs(i)
-                
-        transpose = [[] for i in range(V)]
+        
+        #change the directions of nodes
+        revadj = {}
+        for i in range(V):
+            revadj[i] = []
         
         for i in range(V):
             visited[i] = False
             for x in adj[i]:
-                transpose[x].append(i)
+                revadj[x].append(i)
                 
-        cnt = 0
-        
-        def rdfs(node):
+        #do dfs now for the revadj 
+        ans = 0
+        def dfs2(node):
             visited[node] = True
-            for x in transpose[node]:
+            for x in revadj[node]:
                 if visited[x] == False:
-                    rdfs(x)
-            
-        while len(toposort) > 0:
-            node = toposort.pop()
-            if visited[node] == False:
-                cnt += 1
-                rdfs(node)
+                    dfs2(x)
         
-        return cnt
+        while len(revtopo) > 0:
+            i = revtopo.pop()
+            if visited[i] == False:
+                ans += 1
+                dfs2(i)
+                
+        return ans
+                
+        
+        
+        
         
             
 #{ 

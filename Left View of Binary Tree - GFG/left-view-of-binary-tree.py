@@ -12,29 +12,22 @@ class Node:
 
 #Function to return a list containing elements of left view of the binary tree.
 def LeftView(root):
-      maxheight = -1
-      left = []
-      
-      def helper(node,height):
-          nonlocal maxheight
-          if node is None:
-             return
-         
-          if height > maxheight:
-             maxheight += 1
-             left.append(node.data)
-          helper(node.left,height+1)
-          helper(node.right,height+1)
-      
-      helper(root,0)
-      return left
-      
-        
-             
-          
-    
     # code here
-
+    def helper(node,height):
+        nonlocal maxheight
+        if node is None:
+            return 
+        if height > maxheight:
+            ans.append(node.data)
+            maxheight = height
+        helper(node.left,height+1)
+        helper(node.right,height+1)
+    
+    
+    ans = []
+    maxheight = -1
+    helper(root,0)
+    return ans
 #{ 
 #  Driver Code Starts
 #Contributed by Sudarshan Sharma

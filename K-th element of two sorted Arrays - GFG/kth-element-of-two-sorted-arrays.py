@@ -9,24 +9,25 @@ class Solution:
         h = min(k,n)
         
         while l <= h:
-            cut1 = (l+h)>>1
-            cut2 = k  - cut1
+            cut1 = (l+h) >> 1
+            cut2 = k - cut1
             
-            left1 = -math.inf if cut1 == 0 else arr1[cut1-1]
-            left2 = -math.inf if cut2 == 0 else arr2[cut2-1]
-            right1 = math.inf if cut1 == n else arr1[cut1]
-            right2 = math.inf if cut2 == m else arr2[cut2]
+            l1 = -math.inf if cut1 == 0 else arr1[cut1 - 1]
+            l2 = -math.inf if cut2 == 0 else arr2[cut2 - 1]
             
-            if left1 <= right2 and left2 <= right1:
-                return max(left1,left2)
-            elif left1 > right2:
-                h = cut1 -1
+            r1 = math.inf if cut1 >= n else arr1[cut1]
+            r2 = math.inf if cut2 >= m else arr2[cut2]
+            
+            if l1<=r2 and l2 <= r1 :
+                return max(l1,l2)
+            elif l1 > r2 :
+                h = cut1 - 1
             else :
                 l = cut1 + 1
-                
-        return -1 
-            
         
+        return -1
+        
+            
         
         
 

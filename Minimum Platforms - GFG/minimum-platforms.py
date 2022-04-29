@@ -8,21 +8,23 @@ class Solution:
         arr.sort()
         dep.sort()
         
-        pt = 1
-        ans = 1
+        platform  = 1
+        time = arr[0]
         i = 1
         j = 0
         
+        ans = 1
         while i < n and j < n:
             if arr[i] <= dep[j]:
-                pt += 1
                 i += 1
-                ans = max(ans,pt)
-            else:
-                pt -= 1
+                platform += 1
+                ans = max(platform,ans)
+            else :
                 j += 1
-        
+                platform -= 1
+                
         return ans
+        
         
         
 

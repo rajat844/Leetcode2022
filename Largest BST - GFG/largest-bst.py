@@ -1,34 +1,26 @@
-from collections import deque
-import sys
+#User function Template for python3
 import math
-
-
-class myNode:
-    def __init__(self, minn, maxn, sizen):
-        self.maxn = maxn
-        self.minn = minn
-        self.sizen = sizen
-
-
 class Solution:
     # Return the size of the largest sub-tree which is also a BST
-    def postOrder(self, root):
-        if not root:
-            return myNode(math.inf, -math.inf, 0)
-
-        leftch = self.postOrder(root.left)
-        rightch = self.postOrder(root.right)
-
-        if leftch.maxn < root.data and rightch.minn > root.data:
-            return myNode(min(leftch.minn, root.data), max(root.data, rightch.maxn), 1 + rightch.sizen + leftch.sizen)
-
-        else:
-            return myNode(-math.inf, math.inf, max(rightch.sizen, leftch.sizen))
-
     def largestBst(self, root):
-        # code here
-        x = self.postOrder(root)
-        return x.sizen
+        #code here
+        def helper(node):
+            if node is None:
+                return (math.inf,-math.inf,0)
+                
+            lmin,lmax,lsize = helper(node.left)
+            rmin,rmax,rsize = helper(node.right)
+            
+            if rmin > node.data > lmax:
+                return min(lmin,node.data),max(rmax,node.data),lsize+rsize+1
+            else :
+                return  -math.inf,math.inf,max(lsize,rsize)
+                
+        currmin,currmax,size = helper(root)
+        return size
+    
+                
+
 #{ 
 #  Driver Code Starts
 import sys

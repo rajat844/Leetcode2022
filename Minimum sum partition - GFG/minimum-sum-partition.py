@@ -16,17 +16,12 @@ class Solution:
                 else :
                     dp[i][j] = dp[i-1][j]
 		            
-        arr = []
-        for i in range(s//2 + 1):
+        ans = sys.maxsize
+        for i in range(s//2,-1,-1):
             if dp[n][i] == True:
-                arr.append(i)
+                ans = min(ans,s-2*i)
         
-        mini = sys.maxsize
-        for i in range(len(arr)):
-            mini = min(mini,s -2*arr[i])
-                
-        
-        return mini
+        return ans
 		        
 #{ 
 #  Driver Code Starts

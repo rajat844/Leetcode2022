@@ -15,19 +15,20 @@ class Solution:
         st.append(root)
         
         while len(st) > 0:
-            x = len(st)
-            s = []
-            for i in range(x):
-                node = st.popleft()
-                s.append(node.val)
+            temp = []
+            while len(st) > 0:
+                temp.append(st.popleft())
+            tempans = []
+            for i in range(len(temp)):
+                node = temp[i] 
+                tempans.append(node.val)
+                
                 if node.left:
                     st.append(node.left)
+                
                 if node.right:
                     st.append(node.right)
-                
-            ans.append(s)
+            
+            ans.append(tempans)
             
         return ans
-        
-            
-        

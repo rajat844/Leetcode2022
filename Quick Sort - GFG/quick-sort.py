@@ -2,6 +2,20 @@
 
 class Solution:
     #Function to sort a list using quick sort algorithm.
+    def partition(self,arr,low,high):
+        # code here
+        pivot = arr[high]
+        start = low - 1
+        
+        for i in range(low,high):
+            if arr[i] <= pivot:
+                start += 1
+                arr[i],arr[start] = arr[start],arr[i]
+                
+        start += 1
+        arr[start],arr[high] = arr[high],arr[start]
+        return start
+        
     def quickSort(self,arr,low,high):
         # code here
         if low < high:
@@ -9,20 +23,8 @@ class Solution:
             
             self.quickSort(arr,low,pi-1)
             self.quickSort(arr,pi+1,high)
-    
-    def partition(self,arr,low,high):
-        # code here
-        pivot = arr[high]
-        j = low -1 
         
-        for i in range(low,high):
-            if arr[i] <= pivot:
-                j += 1
-                arr[j],arr[i] = arr[i],arr[j]
-    
-        arr[high],arr[j+1] = arr[j+1],arr[high]
-        return j+1
-    
+        
 
 #{ 
 #  Driver Code Starts

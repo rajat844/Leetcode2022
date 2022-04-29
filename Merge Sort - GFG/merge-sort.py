@@ -2,45 +2,48 @@
 
 class Solution:
     def merge(self,arr, l, m, r): 
-        i = l
-        j = m
-        x = []
-        while i <= m-1 and j <= r:
-            if arr[i] > arr[j]:
-                x.append(arr[j])
-                j+=1
-            else :
-                x.append(arr[i])
-                i+= 1
-        while i <= m-1:
-            x.append(arr[i])
-            i+=1
-        while j <= r:
-            x.append(arr[j])
-            j+=1
-        u = 0
-        for i in range(l,r+1):
-            arr[i] = x[u]
-            u += 1
-        
-
-        
         # code here
-    def mergeSort(self,arr, low, high):
+        temp = []
+        start1 = l
+        start2 = m
+        
+        while start1 < m and start2 <= r:
+            if arr[start1] < arr[start2]:
+                temp.append(arr[start1])
+                start1 += 1
+            else :
+                temp.append(arr[start2])
+                start2 += 1
+        
+        while start1 < m:
+            temp.append(arr[start1])
+            start1 += 1
+        while start2 <= r:
+            temp.append(arr[start2])
+            start2 += 1
+        
+        a = 0
+        for i in range(l,r+1):
+            arr[i] = temp[a]
+            a += 1
+        
+    def mergeSort(self,arr, l, r):
         #code here
-            if low < high:
-                mid = (low + high)//2
-                self.mergeSort(arr,low, mid)
-                self.mergeSort(arr,mid+1, high)
+        if l < r:
+            mid = (l+r) >> 1
+            self.mergeSort(arr,l,mid)
+            self.mergeSort(arr,mid+1,r)
+            
+            self.merge(arr,l,mid+1,r)
 
-                self.merge(arr,low, mid+1, high)
 
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3
 
 
-
+import sys
+input = sys.stdin.readline
 if __name__ == "__main__":
     t=int(input())
     for i in range(t):

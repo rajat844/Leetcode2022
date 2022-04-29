@@ -1,44 +1,41 @@
 #User function Template for python3
-import sys
+import math
 class Solution:
-    def matrixMultiplication(self, N, arr):
+    def matrixMultiplication(self, n, arr):
         # code here
-        # def helper(i,j):
-        #     if i >= j :
+        # def helper(l,r):
+        #     if l>=r:
         #         return 0
             
-        #     ans = sys.maxsize
+        #     ans = math.inf
             
-        #     for k in range(i,j):
-        #         x = helper(i,k)
-        #         y = helper(k+1,j)
-                
-        #         temp = x + y + arr[i-1] * arr[k] * arr[j]
-        #         ans = min(ans,temp)
-            
+        #     for k in range(l,r):
+        #         tempans = helper(l,k) + helper(k+1,r) + arr[l-1] *arr[r]*arr[k]
+        #         ans = min(ans,tempans)
             
         #     return ans
         
-        # return helper(1,len(arr) - 1)
+        # return helper(1,len(arr)-1)
+        dp = [[-1 for i in range(n)]for j in range(n)]
         
-        dp = [[-1 for i in range(N)]for j in range(N)]
-        
-        for i in range(N):
-            dp[i][i] = 0
-        
-        for i in range(N-1,0,-1):
-            for j in range(i+1,N):
+        for i in range(n-1,0,-1):
+            for j in range(n):
                 
-                ans = sys.maxsize   
-                for k in range(i,j):
-                    x = dp[i][k]
-                    y = dp[k+1][j]
-                    temp = x + y + arr[i-1]*arr[j] *arr[k]
-                    ans = min(temp,ans)
+                if i >= j:
+                    dp[i][j] = 0
+                else :
+                    dp[i][j] = math.inf
+                
+                    for k in range(i,j):
+                        tempans = dp[i][k] + dp[k+1][j] + arr[i-1]*arr[j]*arr[k]
+                        dp[i][j] = min(tempans,dp[i][j])
+                
+        return dp[1][n-1]
                     
-                dp[i][j] = ans
+                
         
-        return dp[1][N-1]
+        
+        
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3

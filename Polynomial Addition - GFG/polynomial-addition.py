@@ -45,24 +45,27 @@ class Solution:
     # return a linked list denoting the sum with decreasing value of power
     def addPolynomial(self, poly1, poly2):
         # Code here
-        head = temp = node(0,0)
-        pwr = max(poly1.power,poly2.power)
-        
-        while poly1 or poly2:
-            s = 0
-            if poly1 and poly1.power == pwr:
-                s += poly1.coef
+        head = temp = node(0,-1)
+        while poly1 and poly2 :
+            if poly1.power == poly2.power:
+                temp.next = node(poly1.coef + poly2.coef,poly1.power)
                 poly1 = poly1.next
-            if poly2 and poly2.power == pwr:
-                s += poly2.coef
-                poly2 = poly2.next
-            if s != 0:
-                temp.next = node(s,pwr)
                 temp = temp.next
-            pwr -= 1
-            
+                poly2 = poly2.next
+            elif poly1.power > poly2.power:
+                temp.next = poly1
+                poly1 = poly1.next
+                temp = temp.next
+            else:
+                temp.next = poly2
+                temp = temp.next
+                poly2 = poly2.next
+        
+        temp.next = poly1 or poly2
         return head.next
                 
+                
+            
 #{ 
 #Driver Code Starts.
 if __name__=='__main__':

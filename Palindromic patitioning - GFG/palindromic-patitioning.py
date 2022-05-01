@@ -34,7 +34,7 @@ class Solution:
                 return dp[i][j]
         
         n = len(string)
-        dp = [[-1 for i in range(n+1)]for i in range(n+1)]
+        dp = [[-1 for i in range(n)]for i in range(n)]
         return helper(0,len(string) - 1)
         
 

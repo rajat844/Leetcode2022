@@ -5,19 +5,19 @@
 #         self.next = next
 class Solution:
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
-        count = 1
         curr = head
-        while curr.next:
+        size = 0
+        while curr:
+            size += 1
             curr = curr.next
-            count += 1
         
-        ans = prev = ListNode(0)
+        m = size//k
+        
+        root = prev = ListNode(0)
         curr = head
-        nex = None
-        prev.next = curr
+        prev.next = head
         
-        x = count//k
-        for i in range(x):
+        for i in range(m):
             for j in range(k-1):
                 nex = curr.next
                 curr.next = nex.next
@@ -26,6 +26,5 @@ class Solution:
             prev = curr
             curr = curr.next
         
-        return ans.next
-            
-        
+        return root.next
+                

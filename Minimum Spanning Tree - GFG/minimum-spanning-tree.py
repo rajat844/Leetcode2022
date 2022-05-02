@@ -1,57 +1,30 @@
 #User function Template for python3
-
+import heapq,math
 class Solution:
     
     #Function to find sum of weights of edges of the Minimum Spanning Tree.
     def spanningTree(self, V, adj):
-        def findParent(node):
-            if parent[node] == node:
-                return node
-            parent[node] = findParent(parent[node])
-            return parent[node]
-        
-        def union(node1 , node2):
-            node1 = findParent(node1)
-            node2 = findParent(node2)
-            
-            if rank[node1] == rank[node2]:
-                rank[node2] += 1
-                parent[node2] = node1
-            
-            if rank[node1] > rank[node2]:
-                parent[node1] = node2
-                
-            if rank[node2] > rank[node1]:
-                parent[node2] = node1
-                
-            
         #code here
-        parent = []
-        rank = []
-        
-        for i in range(V):
-            parent.append(i)
-            rank.append(0)
-        
+        isMST = [False for i in range(V)]
+        key = [math.inf for i in range(V)]
         st = []
+        st.append((0,0))
+        heapq.heapify(st)
         
-        for i in range(len(adj)):
-            for j in adj[i]:
-              st.append((i,j[0],j[1]))
-              
-        st.sort(key = lambda x: x[2])
         
-        ans = 0
-        mst = []
-        for i in range(len(st)):
-            node1,node2,edge = st[i]
-            if findParent(node1) != findParent(node2):
-                union(node1,node2)
-                ans += edge
-                mst.append((node1,node2))
+        key[0] = 0
+        
+        while len(st) > 0:
+            dist,node = heapq.heappop(st)
+            isMST[node] = True
+            
+            for x in adj[node]:
+                if isMST[x[0]] == False and key[x[0]] > x[1]:
+                    key[x[0]] = x[1]
+                    heapq.heappush(st,(x[1],x[0]))
+                    
+        return sum(key)
                 
-        return ans
-
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3

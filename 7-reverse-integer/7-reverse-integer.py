@@ -13,6 +13,6 @@ class Solution:
                 return 0
             if res < MIN // 10 or (res == MIN // 10 and digit <= MIN % 10):
                 return 0
-            res = (res * 10) + digit
+            res = res * 10 + digit
 
         return res

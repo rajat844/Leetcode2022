@@ -1,23 +1,23 @@
 class Solution:
-    def findUnsortedSubarray(self, nums: List[int]) -> int:
+    def findUnsortedSubarray(self, arr: List[int]) -> int:
+        n = len(arr)
+        mx = arr[0]
         end = -1
-        mx = nums[0]
         
-        for i in range(1,len(nums)):
-            if mx > nums[i]:
+        for i in range(1,n):
+            if arr[i] >= mx:
+                mx = arr[i]
+            else :
                 end = i
-            else :
-                mx = nums[i]
-        
+                
+        mn = arr[-1]
         start = 0
-        mn = nums[-1]
-        
-        for i in range(len(nums) - 2, -1, -1):
-            if mn < nums[i]:
-                start = i
+        for i in range(n-2,-1,-1):
+            if arr[i] <= mn:
+                mn = arr[i]
             else :
-                mn = nums[i]
+                start = i
         
-        ans = end - start + 1
-        return ans
+        return end - start + 1
+                
         

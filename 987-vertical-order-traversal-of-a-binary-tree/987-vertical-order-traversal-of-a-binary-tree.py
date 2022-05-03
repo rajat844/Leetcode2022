@@ -4,29 +4,26 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from collections import defaultdict
 class Solution:
-    from collections import defaultdict, deque
-    
     def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
-        storage = defaultdict(lambda:defaultdict(list))
-        items = deque()
-
-        items.append((root, 0, 0))
-
-        while len(items) > 0:
-            currNode, currX, currY = items.popleft()
-            storage[currX][currY].append(currNode.val)
-
-            if currNode.left:
-                items.append((currNode.left, currX-1, currY+1))
-            if currNode.right:
-                items.append((currNode.right, currX+1, currY+1))
-        ans = []
-        for i in sorted(storage):
-            temp = []
-            for j in sorted(storage[i]):
-                for k in sorted(storage[i][j]):
-                    temp.append(k)
-            ans.append(temp)
+        st = defaultdict(lambda:defaultdict(list))
         
+        def helper(node,i,j):
+            if node is None:
+                return 
+            
+            st[i][j].append(node.val)
+                
+            helper(node.left,i-1,j+1)
+            helper(node.right,i+1,j+1)
+        helper(root,0,0)  
+        
+        ans = []
+        for i in sorted(st):
+            temp = []
+            for j in sorted(st[i]):
+                for k in sorted(st[i][j]):
+                    temp.append(k)
+            ans.append(temp)   
         return ans

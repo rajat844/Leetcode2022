@@ -1,5 +1,4 @@
 #User function Template for python3
-
 # Tree Node
 # class Node:
 #     def __init__(self, val):
@@ -12,33 +11,27 @@ class Solution:
     #Function to return a list of nodes visible from the top view 
     #from left to right in Binary Tree.
     def topView(self,root):
-        dic = {}
-        st = deque()
-        st.append((root,0))
-        
-        xl = 0
-        xr = 0
-        
-        while len(st) > 0:
-            node,cordinate = st.popleft()
-            xl = min(xl,cordinate)
-            xr = max(xr,cordinate)
+        if root is None:
+            return []
             
-            if cordinate not in dic:
-                dic[cordinate] = node.data
+        st = {}
+        q = deque()
+        q.append((root,0))
+        
+        while len(q) > 0:
+            node,x = q.popleft()
+            if x not in st:
+                st[x] = node.data
             
             if node.left:
-                st.append((node.left,cordinate - 1))
+                q.append((node.left,x-1))
             if node.right:
-                st.append((node.right,cordinate + 1))
+                q.append((node.right,x+1))
         
-        ans = []       
-        for x in range(xl,xr+1):
-            ans.append(dic[x])
-        
+        ans = []
+        for i in sorted(st):
+            ans.append(st[i])
         return ans
-            
-        
         # code here
 
 #{ 

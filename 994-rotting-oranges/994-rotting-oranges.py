@@ -1,39 +1,40 @@
 from collections import deque
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
-        m = len(grid)
-        n = len(grid[0])
-        rotten = deque()
-        total = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] != 0:
-                    total += 1
+        n = len(grid)
+        m = len(grid[0])
+        
+        st = deque()
+        for i in range(n):
+            for j in range(m):
                 if grid[i][j] == 2:
-                    rotten.append((i,j))
-                    
-        dx = [0,0,1,-1]
-        dy = [1,-1,0,0]
-        days = 0
-        count = 0
-        while len(rotten) > 0:
-            x = len(rotten)
-            count += x
-            while x > 0:
-                x -= 1
-                nx,ny = rotten.popleft()
-                for j in range(4):
-                    a = nx + dx[j]
-                    b = ny + dy[j]
-                    if a < 0 or a >= m or b < 0 or b >= n or grid[a][b] != 1:
-                        continue
-                    else:
-                        grid[a][b] = 2
-                        rotten.append((a,b))
-            if len(rotten) > 0 :
-                days += 1
+                    st.append((i,j))
+        ans = 0
+        while len(st) > 0:
+            s = len(st)
             
-        if total == count:
-            return days
-        else :
-            return -1
+            while s > 0:
+                i,j = st.popleft()
+                s -= 1
+                
+                if i-1 >= 0 and grid[i-1][j] == 1:
+                    grid[i-1][j] = 2
+                    st.append((i-1,j))
+                if j-1 >= 0 and grid[i][j-1] == 1:
+                    grid[i][j-1] = 2
+                    st.append((i,j-1)) 
+                if i+1 < n and grid[i+1][j] == 1:
+                    grid[i+1][j] = 2
+                    st.append((i+1,j))
+                if j+1 < m and grid[i][j+1] == 1:
+                    grid[i][j+1] = 2
+                    st.append((i,j+1))
+            if len(st) > 0:
+                ans += 1
+            
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j] == 1:
+                    return -1
+                
+        return ans

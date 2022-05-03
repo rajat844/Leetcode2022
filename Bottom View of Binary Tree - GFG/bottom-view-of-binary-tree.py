@@ -3,29 +3,30 @@ from collections import defaultdict,deque
 class Solution:
     def bottomView(self, root):
         if root is None:
-            return None
+            return []
         # code here
-        q = deque()
-        q.append((root,0))
+        dic = defaultdict(int)
+        st = deque()
+        st.append((root,0))
+        
+        while len(st) > 0:
+            node,x = st.popleft()
+            
+            dic[x] = node.data
+            
+            if node.left:
+                st.append((node.left,x-1))
+            if node.right:
+                st.append((node.right,x+1))
+        
         ans = []
-        d = dict()
-        xl, xr = 999999999, 0
         
+        for i in sorted(dic):
+            ans.append(dic[i])
         
-        while len(q)>0:
-            node,cordinate = q.popleft()
-            xl = min(xl, cordinate)
-            xr = max(xr, cordinate)
-            d[cordinate] = node.data
-            if node.left != None:
-                q.append((node.left, cordinate-1))
-            if node.right != None:
-                q.append((node.right,cordinate+1))
-                
-                
-        for x in range(xl, xr+1):
-            ans.append(d[x])
         return ans
+            
+        
 
 #{ 
 #  Driver Code Starts

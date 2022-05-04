@@ -5,27 +5,22 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
-        n = len(preorder)
-        inorder = sorted(preorder)
-        st = {}
-        
-        for i in range(len(inorder)):
-            st[inorder[i]] = i
-        
-        def helper(prestart,preend,instart,inend):
-            if prestart > preend:
+    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:   
+        def helper(upperbound):
+            nonlocal i
+            if i == len(preorder) or preorder[i] > upperbound:
                 return None
-            x = preorder[prestart]
+           
+            x = preorder[i]
             node = TreeNode(x)
-            
-            inidx = st[x]
-            d = inidx - instart
-            
-            node.left = helper(prestart + 1,prestart + d,instart,inidx - 1)
-            node.right = helper(prestart + d + 1, preend,inidx + 1, inend)
+            i += 1
+            node.left = helper(x)
+            node.right = helper(upperbound)
             
             return node
-        
-        return helper(0,n-1,0,n-1)
+        i = 0
+        return helper(1001)
+            
+            
+
         

@@ -2,30 +2,25 @@ from collections import deque
 class MyStack:
 
     def __init__(self):
-        self.st = deque()
+        self.q1 = deque()
         
-
     def push(self, x: int) -> None:
-        self.st.append(x)
-        n = len(self.st)
-        for i in range(n-1):
-            self.st.append(self.st.popleft())
+        n = len(self.q1)
+        self.q1.append(x)
+        for i in range(n):
+            self.q1.append(self.q1.popleft())
         
 
     def pop(self) -> int:
-        if len(self.st) > 0:
-            x = self.st.popleft()
-            return x
-        else :
-            return None
+        return self.q1.popleft()
+        
 
     def top(self) -> int:
-        if len(self.st) > 0:
-            return self.st[0]
-        return None
+        return self.q1[0]
+        
 
     def empty(self) -> bool:
-        if len(self.st)> 0:
+        if len(self.q1) > 0:
             return False
         return True
         

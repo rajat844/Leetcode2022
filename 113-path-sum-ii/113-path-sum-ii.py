@@ -6,30 +6,31 @@
 #         self.right = right
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
-        if root is None:
-            return []
-        def isleaf(node):
+        def isRoot(node):
             if node.left == None and node.right == None:
                 return True
+            
             return False
         
-        def helper(node,arr):
-            nonlocal ans
-            arr.append(node.val)
-            
-            if isleaf(node) is True:
-                if sum(arr) == targetSum:
-                    ans.append(arr[::])
-            
-            else:
-                if node.left:
-                    helper(node.left,arr)
-                if node.right:
-                    helper(node.right,arr)
-            
-            arr.pop()
+        if root is None:
+            return []
         
-        ans = []
+        def helper(node,s):
+            
+            nonlocal ans
+            s.append(node.val)
+            if isRoot(node) and sum(s) == targetSum:
+                ans.append(s[::])
+            
+            if node.left:
+                helper(node.left,s)
+            if node.right:
+                helper(node.right,s)
+            s.pop()
+            
+        ans = [] 
+        
         helper(root,[])
         return ans
+            
         

@@ -9,17 +9,20 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
-        prev = None
-        
-        def helper(root):
-            nonlocal prev
-            if root is None:
+        def helper(node):
+            nonlocal pre
+            
+            if node is None:
                 return 
-            helper(root.right)
-            helper(root.left)
-            root.right = prev
-            root.left = None
-            prev = root
+            
+            helper(node.right)
+            helper(node.left)
+            
+            node.right = pre
+            node.left = None
+            
+            pre = node
         
+        pre = None
         helper(root)
-        return prev
+        return pre

@@ -1,20 +1,25 @@
-from collections import deque
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
-        stack = []
-        st = list(s)
-        for i in range(len(st)):
+        st = []
+        ans = []
+        
+        for i in range(len(s)):
             if s[i] == "(":
-                stack.append(i)
-            if s[i] == ")":
-                if len(stack) == 0:
-                    st[i] = ''
+                st.append(i)
+                ans.append("(")
+            elif s[i] == ")":
+                if len(st) > 0:
+                    st.pop()
+                    ans.append(")")
                 else:
-                    stack.pop()
-                    
-        while len(stack) != 0:
-            st[stack[-1]] = ""
-            stack.pop()
-        ans = ''.join(st)
-        return ans
-            
+                    ans.append("")
+            else:
+                ans.append(s[i])
+        print(ans)
+        while len(st) > 0:
+            i = st.pop()
+            ans[i] = ""
+        
+        return ''.join(ans)
+                
+                

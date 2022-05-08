@@ -21,27 +21,28 @@
 #        """
 
 class NestedIterator:
-    def helper(self,nestedList):
-        for i in range(len(nestedList)):
-            if nestedList[i].isInteger() == True:
-                self.st.append(nestedList[i].getInteger())
-            else:
-                x = nestedList[i].getList()
-                self.helper(x)
     def __init__(self, nestedList: [NestedInteger]):
         self.st = []
-        self.helper(nestedList)
-        self.ps = -1
-
+        self.iterator = -1
+        self.simplify(nestedList)
+        
+    def simplify(self,lst):
+        for i in range(len(lst)):
+            if lst[i].isInteger() == True:
+                self.st.append(lst[i].getInteger())
+            else:
+                x = lst[i].getList()
+                self.simplify(x)
+    
     def next(self) -> int:
-        self.ps += 1
-        return self.st[self.ps]
-
+        self.iterator += 1
+        return self.st[self.iterator]
     
     def hasNext(self) -> bool:
-        if len(self.st)-1 == self.ps:
+        if self.iterator == len(self.st) -1 :
             return False
         return True
+         
 
 # Your NestedIterator object will be instantiated and called as such:
 # i, v = NestedIterator(nestedList), []

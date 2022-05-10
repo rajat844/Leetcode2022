@@ -11,17 +11,24 @@ class Solution:
         if node is None:
             return None
         
+        def helper(head):
+            if head in st:
+                return st[head]
+            if head:
+                cl_head = Node(head.val)
+                st[head] = cl_head
+                
+            if head.neighbors == None:
+                cl_head.neighbors = None
+            
+            else:
+                for x in head.neighbors:
+                    cl_head.neighbors.append(helper(x))
+                    
+            return cl_head
+        
         st = {}
-        
-        def helper(root):
-            if root in st:
-                return st[root]
-            
-            cloneroot = Node(root.val)
-            st[root] = cloneroot
-            for x in root.neighbors:
-                cloneroot.neighbors.append(helper(x))
-            
-            return cloneroot
-        
         return helper(node)
+                
+            
+        

@@ -3,13 +3,13 @@ class Solution:
         nums1.sort()
         nums2.sort()
         
-        i = 0
+        i = 0 
         j = 0
-        ans = []
+        cnt = []
         
         while i < len(nums1) and j < len(nums2):
             if nums1[i] == nums2[j]:
-                ans.append(nums1[i])
+                cnt.append(nums1[i])
                 i += 1
                 j += 1
             
@@ -21,4 +21,4 @@ class Solution:
             while 0 < i < len(nums1) and nums1[i] == nums1[i-1]:
                 i += 1
         
-        return ans
+        return cnt

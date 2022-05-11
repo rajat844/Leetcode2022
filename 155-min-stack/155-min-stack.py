@@ -1,9 +1,9 @@
-import sys
+import math
 class MinStack:
 
     def __init__(self):
         self.st = []
-        self.min = sys.maxsize
+        self.min = math.inf
         
 
     def push(self, val: int) -> None:
@@ -11,29 +11,37 @@ class MinStack:
             self.st.append(val)
             self.min = val
         else:
-            if self.min > val:
-                self.st.append(2*val - self.min)
-                self.min = val
-            else:
+            if val >= self.min:
                 self.st.append(val)
+            else:
+                x = 2 * val - self.min
+                self.st.append(x)
+                self.min = val
 
     def pop(self) -> None:
         if len(self.st) > 0:
-            x = self.st.pop()
-            if x < self.min:
-                self.min = 2 * self.min - x
-        else :
-            return
+            if self.min <= self.st[-1]:
+                self.st.pop()
+            else:
+                x = 2 * self.min - self.st[-1]
+                self.min = x
+                self.st.pop()
+                
+            
 
     def top(self) -> int:
-        if self.st[-1] < self.min:
-            return self.min
-        else :
-            return self.st[-1]
+        if len(self.st) > 0:
+            if self.min <= self.st[-1]:
+                return self.st[-1]
+            else:
+                return self.min
+        return None
         
 
     def getMin(self) -> int:
-        return self.min
+        if len(self.st) > 0:
+            return self.min
+        return None
         
 
 

@@ -1,10 +1,9 @@
-from queue import PriorityQueue 
 class Solution:
     def numberOfWeeks(self, milestones: List[int]) -> int:
-        m = max(milestones)
         s = sum(milestones)
+        m = max(milestones)
         
-        if s-2*m < -1:
-            return 2*(s-m) +1
-        else :
+        if s - m >= m - 1:
             return s
+        else:
+            return 2*(s-m) + 1

@@ -5,12 +5,11 @@ class Solution:
         """
         def reverse(start,end):
             while start < end:
-                x = nums[start]
-                nums[start] = nums[end]
-                nums[end] = x
+                nums[start],nums[end] = nums[end],nums[start]
                 start += 1
-                end -= 1
-        k %= len(nums)     
-        reverse(0,len(nums)-1)
+                end -= 1 
+                
+        k  %= len(nums)
+        reverse(0,len(nums) -1)
+        reverse(k,len(nums) - 1)
         reverse(0,k-1)
-        reverse(k,len(nums)-1)

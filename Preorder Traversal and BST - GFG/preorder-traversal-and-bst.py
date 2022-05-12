@@ -12,9 +12,11 @@ class Solution:
             
             if root > nums[i]:
                 return 0
+            
             st.append(nums[i])
         
         return 1
+        
 
 #{ 
 #  Driver Code Starts

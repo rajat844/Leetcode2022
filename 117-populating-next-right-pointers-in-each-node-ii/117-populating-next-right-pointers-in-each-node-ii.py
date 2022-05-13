@@ -7,7 +7,7 @@ class Node:
         self.right = right
         self.next = next
 """
-
+from collections import deque
 class Solution:
     def connect(self, root: 'Node') -> 'Node':
         if root is None:
@@ -17,10 +17,12 @@ class Solution:
         
         while len(st) > 0:
             k = len(st)
+            
             while k > 1:
-                k -= 1
                 node = st.popleft()
+                k -= 1
                 node.next = st[0]
+                
                 if node.left:
                     st.append(node.left)
                 if node.right:
@@ -32,6 +34,7 @@ class Solution:
                 st.append(node.left)
             if node.right:
                 st.append(node.right)
+            
         
         return root
         

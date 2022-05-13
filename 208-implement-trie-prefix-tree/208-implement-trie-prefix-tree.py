@@ -3,56 +3,42 @@ class Node:
         self.st = [None for i in range(26)]
         self.flag = False
         
-    def isContain(self,ch):
-        return self.st[ord(ch) - ord('a')] != None
     
-    def put(self,ch):
-        self.st[ord(ch) - ord('a')] = Node()
-        
-    def get(self,ch):
-        return self.st[ord(ch) - ord('a')] 
-    
-    def end(self):
-        self.flag = True
-        
-    def isEnd(self):
-        return self.flag
 class Trie:
 
     def __init__(self):
         self.root = Node()
         
-
     def insert(self, word: str) -> None:
-        node = self.root
-        for i in range(len(word)):
-            if not node.isContain(word[i]):
-                node.put(word[i])
-            node = node.get(word[i])
-            
-        node.end()
+        curr = self.root
+        
+        for ch in word:
+            if curr.st[ord(ch)-ord("a")] == None:
+                curr.st[ord(ch) - ord("a")] = Node()
+            curr = curr.st[ord(ch) - ord("a")]
+        
+        curr.flag = True
 
     def search(self, word: str) -> bool:
-        node = self.root
-        for i in range(len(word)):
-            if not node.isContain(word[i]):
+        curr = self.root
+        
+        for ch in word:
+            if curr.st[ord(ch) - ord("a")] == None:
                 return False
-            node = node.get(word[i])
-            
-        return node.isEnd()
-           
-
-    def startsWith(self, prefix: str) -> bool:
-        node = self.root
-        for i in range(len(prefix)):
-            if not node.isContain(prefix[i]):
-                return False
-            node = node.get(prefix[i])
-            
-        return True
+            curr = curr.st[ord(ch) - ord("a")]
+        
+        return curr.flag
         
 
-
+    def startsWith(self, prefix: str) -> bool:
+        curr = self.root
+        
+        for ch in prefix:
+            if curr.st[ord(ch) - ord("a")] == None:
+                return False
+            curr = curr.st[ord(ch) - ord("a")]
+        
+        return True
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()
 # obj.insert(word)

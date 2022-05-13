@@ -12,29 +12,24 @@ class Solution:
     def connect(self, root: 'Node') -> 'Node':
         if root is None:
             return None
-        st = deque()
-        st.append(root)
         
-        while len(st) > 0:
-            k = len(st)
+        curr = root
+        
+        while curr:
+            dummy = Node(0)
+            temp = dummy
             
-            while k > 1:
-                node = st.popleft()
-                k -= 1
-                node.next = st[0]
+            while curr:
+                if curr.left:
+                    temp.next = curr.left
+                    temp = temp.next
+                if curr.right:
+                    temp.next = curr.right
+                    temp = temp.next
+                    
+                curr = curr.next
+            curr = dummy.next
                 
-                if node.left:
-                    st.append(node.left)
-                if node.right:
-                    st.append(node.right)
-            
-            node = st.popleft()
-            node.next = None
-            if node.left:
-                st.append(node.left)
-            if node.right:
-                st.append(node.right)
-            
         
         return root
         

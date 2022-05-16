@@ -2,17 +2,13 @@
 
 class Solution:
 
-    def findMinDiff(self,arr,n,m):
-        arr.sort(reverse = True)
-        
-        mindif = arr[0] - arr[m-1]
-        
-        for i in range(1,len(arr) - m + 1 ):
-            mindif = min(mindif,arr[i] - arr[i+m-1])
-        return mindif
-
+    def findMinDiff(self, A,N,M):
+        A.sort()
+        mindif = max(A)
+        for i in range(N-M+1):
+            mindif = min(mindif, A[i + M - 1] - A[i])
         # code here
-
+        return mindif
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3

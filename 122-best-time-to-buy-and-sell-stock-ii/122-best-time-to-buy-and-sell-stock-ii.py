@@ -3,13 +3,15 @@ class Solution:
         n = len(prices)
         dp = [[-1 for j in range(2)] for i in range(n+1)]
         
-        dp[n][0] = dp[n][1] = 0
+        prev0= prev1 = 0
     
         for i in range(n-1,-1,-1):
-            dp[i][1] = max(-1*prices[i]+dp[i+1][0],dp[i+1][1])
-            dp[i][0] = max(prices[i] + dp[i+1][1],dp[i+1][0])
+            temp1 = max(-1*prices[i]+prev0,prev1)
+            temp0 = max(prices[i] +prev1,prev0)
+            prev1 = temp1
+            prev0 = temp0
         
-        return dp[0][1]
+        return prev1
             
 #         def helper(i,b):
 #             if i == len(prices):

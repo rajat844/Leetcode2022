@@ -8,13 +8,11 @@ class Solution:
         slow = head
         fast = head
         
-        try:
-            while slow.next and fast.next:
-                slow = slow.next
-                fast = fast.next.next
-            return slow
-        except:
-            return slow
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        
+        return slow
             
             
             

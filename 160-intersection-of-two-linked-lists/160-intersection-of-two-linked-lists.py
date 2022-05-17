@@ -10,10 +10,8 @@ class Solution:
         curr2 = headB
         
         while curr1 != curr2:
-            curr1 = headB if curr1 is None else curr1.next
-            curr2 = headA if curr2 is None else curr2.next
+            curr1 = curr1.next if curr1 != None else headB
+            curr2 = curr2.next if curr2 != None else headA
             
-    
-        
         return curr1
         

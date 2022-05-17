@@ -8,14 +8,13 @@ class Solution:
         size = 0
         curr = head
         while curr:
-            size += 1
             curr = curr.next
+            size += 1
         
         m = size//k
         
-        root = prev = ListNode(0)
+        prev = ans = ListNode(0)
         curr = head
-        
         prev.next = curr
         
         for i in range(m):
@@ -28,4 +27,4 @@ class Solution:
             prev = curr
             curr = curr.next
         
-        return root.next
+        return ans.next

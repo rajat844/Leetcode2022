@@ -1,5 +1,5 @@
 # Get Minimum Squares
-##  Medium 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a number N. Find&nbsp;the minimum number of squares of any&nbsp;number that sums to N. For Example: If N = 100 , N can be expressed as (10*10) and also as (5*5 + 5*5 + 5*5 + 5*5) but the output will be 1 as minimum number of square is 1 , i.e (10*10).</span><br>
 &nbsp;</p>

@@ -9,14 +9,14 @@ def wordBreak(line, dictionary):
             dp[i][j] = False
             return False
             
-        if line[i:j+1] in dictionary:
+        if line[i:j+1] in dic:
             dp[i][j] = True
             return dp[i][j]
             
         dp[i][j] = False
         
         for k in range(i,j):
-            if line[i:k+1] in dictionary:
+            if line[i:k+1] in dic:
                 case1 = dp[i][k] if dp[i][k] != None else helper(i,k)
                 case2 = dp[k+1][j] if dp[k+1][j] != None else helper(k+1,j)
             
@@ -25,7 +25,7 @@ def wordBreak(line, dictionary):
                     break
         
         return dp[i][j]
-    
+    dic = set(dictionary)
     dp = [[None for i in range(len(line))]for j in range(len(line))]
     return helper(0,len(line) - 1)
             

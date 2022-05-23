@@ -13,15 +13,17 @@ class Solution:
             if n <= 1 or k <= 1:
                 dp[n][k] = k
                 return dp[n][k]
-             
-            dp[n][k] = math.inf   
+            
+            dp[n][k] = math.inf
+            
             for i in range(1,k+1):
                 case1 = dp[n-1][i-1] if dp[n-1][i-1] != None else helper(n-1,i-1)
                 case2 = dp[n][k-i] if dp[n][k-i] != None else helper(n,k-i)
+                
                 dp[n][k] = min(dp[n][k],1+max(case1,case2))
-            
             return dp[n][k]
-        dp = [[None for i in range(k+1)]for j in range(n+1)]
+            
+        dp = [[None for j in range(k+1)] for i in range(n+1)]
         return helper(n,k)
 
 #{ 

@@ -17,7 +17,7 @@ class Solution:
                 curr = que.popleft()
                 for i in range(len(curr)):
                     temp = curr
-                    for j in range(97,123):
+                    for j in range(ord("a"),ord("z") + 1):
                         temp = temp[:i]+ chr(j) + temp[i+1:]
                         if temp == curr:
                             continue

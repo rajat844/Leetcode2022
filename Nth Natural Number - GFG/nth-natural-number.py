@@ -5,13 +5,13 @@ class Solution:
         #code here
         ans = 0
         temp = 1
+        
         while N:
-            ans = ans + temp*(N%9)
+            ans += temp*(N%9)
             temp *= 10
             N = N//9
-            
+        
         return ans
-            
 
 #{ 
 #  Driver Code Starts

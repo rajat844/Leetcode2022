@@ -16,16 +16,15 @@ class Solution:
         else:
             ans.append(".")
         
-        while r != 0:
+        while r != 0 and r not in st:
+            st[r] = len(ans)
             r = r*10
             q = r//denominator
             r = r%denominator
             ans += str(q)
-            if r in st:
-                ans.insert(st[r],"(")
-                ans.append(")")
-                break
-            st[r] = len(ans)
+        if r in st:
+            ans.insert(st[r],"(")
+            ans.append(")")
             
         s = ''.join(ans)
         return s

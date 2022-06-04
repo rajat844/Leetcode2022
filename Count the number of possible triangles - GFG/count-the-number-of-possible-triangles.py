@@ -7,19 +7,20 @@ class Solution:
         arr.sort()
         ans = 0
         
-        for c in range(n-1,1,-1):
-            a = 0
-            b = c - 1
+        for i in range(n-1,1,-1):
+            j = 0
+            k = i-1 
             
-            while a < b:
-                if arr[a] + arr[b] > arr[c]:
-                    ans += b-a
-                    b -= 1
-                else:
-                    a += 1
+            while j < k:
+                if arr[j]+arr[k] > arr[i]:
+                    ans += k-j 
+                    k -= 1
+                
+                else :
+                    j += 1
+            
         
         return ans
-                
 
 #{ 
 #  Driver Code Starts

@@ -12,9 +12,9 @@ class Solution:
             else :
                 l = mid + 1
         
-        if l * l > x :
-            return h
-        else :
-            return l
-        
+        # if l * l > x :
+        #     return h
+        # else :
+        #     return l
+        return h
         

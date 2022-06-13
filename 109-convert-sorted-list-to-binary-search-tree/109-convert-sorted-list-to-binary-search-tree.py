@@ -9,29 +9,26 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution:
-    def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
-        def helper(node):
-            if node == None:
-                return None
-            if node.next == None:
-                return TreeNode(node.val)
-            fast = node
-            slow = node
-            prev = None
-            while fast and fast.next:
-                prev = slow
-                slow = slow.next
-                fast = fast.next.next
+class Solution:    
+    def sortedListToBST(self, node: Optional[ListNode]) -> Optional[TreeNode]:
+        if node is None:
+            return None
+        if node.next is None:
+            return TreeNode(node.val)
+        slow = node
+        fast = node
+        prev = None
+        
+        while fast and fast.next:
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
             
-            prev.next = None           
-            node2 = slow.next
-            slow.next = None
-            
-            root = TreeNode(slow.val)
-            root.left = helper(node)
-            root.right = helper(node2)
-            return root
-        return helper(head)
-            
-                
+        prev.next = None
+        node2 = slow.next
+        slow.next = None
+        
+        root = TreeNode(slow.val)
+        root.left = self.sortedListToBST(node)
+        root.right = self.sortedListToBST(node2)
+        return root

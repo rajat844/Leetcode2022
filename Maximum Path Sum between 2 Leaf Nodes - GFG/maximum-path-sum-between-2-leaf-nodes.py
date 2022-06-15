@@ -7,33 +7,41 @@ class Node:
         self.data = val
         self.left = None
         self.right = None
-       '''
-def maxPathSumUtil(root, res):
-
-   if root is None:
-       return 0
-   ls = maxPathSumUtil(root.left, res)
-   rs = maxPathSumUtil(root.right, res)
-   if root.left is not None and root.right is not None:
-
-       res[0] = max(res[0], ls + rs + root.data)
-
-       return max(ls, rs) + root.data
-
-   if root.left is None:
-       return rs + root.data
-   else:
-       return ls + root.data
-   return root.data+max(ls,rs)
-   
+        '''
+import math
 class Solution:        
-   def maxPathSum(self, root):
-       res = [-float('inf')]
-       ans = maxPathSumUtil(root, res)
-       if not root.left or not root.right:
-           res[0] = max(res[0], ans)
-       return res[0]
+    def maxPathSum(self, root):
+        # code here
+        def helper(node):
+            nonlocal ans
+            if node is None:
+                return 0
+            
+            lh = helper(node.left)
+            rh = helper(node.right)
+            
+            if node.left != None and node.right != None:
+                ans = max(lh+rh+node.data,ans)
+                return node.data + max(rh,lh)
                 
+            elif node.left == None:
+                return node.data + rh
+            
+            else :
+                return node.data + lh
+        
+        ans = -math.inf
+        res = helper(root)
+        
+        if root.left == None or root.right == None:
+            ans = max(ans,res)
+        
+        return ans
+            
+        
+                
+                
+
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3

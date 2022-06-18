@@ -1,13 +1,17 @@
-from collections import deque
 class Solution:
-    def maxScore(self, cardPoints: List[int], k: int) -> int:
-        ans = sum(cardPoints[:k])
-        maxans = ans
+    def maxScore(self, nums: List[int], k: int) -> int:
+        minsum = sum(nums)
+        window = len(nums) - k
+        r = -1
+        s = 0
+        for l in range(len(nums)):
+            s += nums[l]
+            while l-r > window:
+                r += 1
+                s -= nums[r]
+            if l-r == window:
+                minsum = min(minsum,s)
         
-        for i in range(1,k+1):
-            ans = ans + cardPoints[-i] - cardPoints[k-i]
-            maxans = max(ans,maxans)
+        return sum(nums) - minsum
         
-        return maxans
-            
-            
+        

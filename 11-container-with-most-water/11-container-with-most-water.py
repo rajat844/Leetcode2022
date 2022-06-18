@@ -1,17 +1,19 @@
 class Solution:
-    def maxArea(self, heights: List[int]) -> int:
-        r = len(heights) -1 
+    def maxArea(self, arr: List[int]) -> int:
         l = 0
-        ans = 0
-        while l < r:
-            if heights[r] > heights[l]:
-                tempans = (r-l )* heights[l]
-                l += 1
-                
-            else :
-                tempans = (r-l) * heights[r]
-                r -= 1
-            ans = max(ans,tempans)
+        r = len(arr) - 1
+        maxarea = 0
         
-        return ans
+        while l < r:
+            h = min(arr[l],arr[r])
+            w = r - l
+            maxarea = max(maxarea,h*w)
+            if arr[l] > arr[r]:
+                r -= 1
+            else :
+                l += 1
+        
+        return maxarea
+            
+             
         

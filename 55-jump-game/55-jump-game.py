@@ -1,17 +1,16 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         n = len(nums)
-        last = n-1
+        dp = [False for i in range(len(nums))]
+        
+        dp[n-1] = True
         
         for i in range(n-2,-1,-1):
             x = nums[i]
-            if i+x >= last:
-                last = i
-                
-        if last == 0:
-            return True
-        return False
-
-                
-                
+            for j in range(1,x+1):
+                if dp[i+j] == True:
+                    dp[i] = True
+                    break
+        
+        return dp[0]
         

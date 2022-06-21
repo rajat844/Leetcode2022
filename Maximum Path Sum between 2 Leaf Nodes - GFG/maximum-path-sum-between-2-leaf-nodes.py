@@ -12,35 +12,31 @@ import math
 class Solution:        
     def maxPathSum(self, root):
         # code here
-        def helper(node):
+        def dfs(node):
             nonlocal ans
             if node is None:
                 return 0
             
-            lh = helper(node.left)
-            rh = helper(node.right)
+            lh = dfs(node.left)
+            rh = dfs(node.right)
             
-            if node.left != None and node.right != None:
-                ans = max(lh+rh+node.data,ans)
+            if node.left and node.right:
+                ans = max(ans,lh+rh+node.data)
                 return node.data + max(rh,lh)
-                
+            
+            elif node.right == None:
+                return node.data + lh
+            
             elif node.left == None:
                 return node.data + rh
             
-            else :
-                return node.data + lh
-        
+            
         ans = -math.inf
-        res = helper(root)
-        
+        res = dfs(root)
         if root.left == None or root.right == None:
-            ans = max(ans,res)
+            ans = max(res,ans)
         
         return ans
-            
-        
-                
-                
 
 #{ 
 #  Driver Code Starts

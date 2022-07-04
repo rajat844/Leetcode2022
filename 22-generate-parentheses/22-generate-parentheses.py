@@ -1,17 +1,17 @@
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        def generate(op,cl,s):
-            if op < 0:
+        def generate(i,j,s):
+            if i > n:
                 return 
-            if op == 0 and cl == 0:
-                ans.append(s[::])
+            if i == n and j == n:
+                ans.append(s)
                 return
-            if op == cl:
-                generate(op-1,cl,s+"(")
-            elif op < cl:
-                generate(op-1,cl,s+"(")
-                generate(op,cl-1,s+")")
+            if i == j:
+                generate(i+1,j,s+"(")
+            else:
+                generate(i+1,j,s+"(")
+                generate(i,j+1,s+")")
+            
         ans = []
-        generate(n,n,"")
+        generate(0,0,"")
         return ans
-        

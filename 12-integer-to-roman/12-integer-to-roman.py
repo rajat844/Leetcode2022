@@ -4,14 +4,17 @@ class Solution:
                ["L",50],["XC",90],["C",100],["CD",400],["D",500],["CM",900],["M",1000]]
         
         ans = ""
-        
-        for i in range(len(arr)-1,-1,-1):
-            s = arr[i][0]
-            n = arr[i][1]
-            m = num//n
-            num = num % n
-            while m:
-                ans += s
-                m -= 1
+        n = len(arr)
+        for i in range(n-1,-1,-1):
+            x1 = arr[i][0]
+            x2 = arr[i][1]
+            
+            div = num//x2
+            num = num % x2
+            while div:
+                ans +=x1
+                div -= 1
         
         return ans
+            
+            

@@ -8,19 +8,19 @@ class SmallestInfiniteSet:
         
 
     def popSmallest(self) -> int:
-        result = self.currmin
+        res = self.currmin
         
         heapq.heapify(self.st)
         
         if len(self.st) > 0 and self.st[0] < self.currmin:
-            result = heapq.heappop(self.st)
+            res = heapq.heappop(self.st)
         else :
             self.currmin += 1
         
-        while len(self.st) > 0 and result == self.st[0]:
+        while len(self.st) > 0 and res == self.st[0]:
             heapq.heappop(self.st)
         
-        return result
+        return res
         
 
     def addBack(self, num: int):

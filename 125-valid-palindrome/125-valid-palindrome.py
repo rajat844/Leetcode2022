@@ -8,7 +8,7 @@ class Solution:
                 t += s[i].lower()
             elif ord("a") <= ord(s[i]) <= ord("z"):
                 t += s[i]
-        print(t)
+    
         if t == t[::-1]:
             return True
         return False

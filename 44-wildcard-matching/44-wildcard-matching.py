@@ -1,32 +1,27 @@
 class Solution:
-    def isMatch(self, s: str, p: str) -> bool:
-        def match(i,j):
-            if dp[i][j] != None:
-                return dp[i][j]
-            if i < 0 and j < 0:
-                dp[i][j] = True
-                return dp[i][j]
-            if j < 0 :
-                dp[i][j] = False
-                return dp[i][j]
-            if i < 0 :
-                for x in range(j,-1,-1):
-                    if p[x] != "*":
-                        dp[i][j] = False
-                        return dp[i][j]
-                dp[i][j] = True
-                return dp[i][j]
-            
-            if s[i] == p[j] or p[j] == "?":
-                dp[i][j] =  match(i-1,j-1)
-                return dp[i][j]
-            if p[j] == "*":
-                dp[i][j] =  match(i-1,j) or match(i,j-1)
-                return dp[i][j]
-            dp[i][j] =  False
-            return dp[i][j]
-        
+    def isMatch(self, s: str, p: str) -> bool:        
         dp = [[None for i in range(len(p)+1)]for j in range(len(s)+1)]
-        return match(len(s)-1,len(p)-1)
+        dp[0][0] = True
+        
+        for i in range(1,len(s)+1):
+            dp[i][0] = False
+        
+        for j in range(1,len(p)+1):
+            dp[0][j] = True
+            for x in range(j,0,-1):
+                if p[x-1] != "*":
+                    dp[0][j] = False
+                    break
+                    
+        for i in range(1,len(s)+1):
+            for j in range(1,len(p)+1):
+                if s[i-1] == p[j-1] or p[j-1] == "?":
+                    dp[i][j] =  dp[i-1][j-1]
+                elif p[j-1] == "*":
+                    dp[i][j] =  dp[i-1][j] or dp[i][j-1]
+                else :
+                    dp[i][j] = False
+                    
+        return dp[len(s)][len(p)]
                 
         

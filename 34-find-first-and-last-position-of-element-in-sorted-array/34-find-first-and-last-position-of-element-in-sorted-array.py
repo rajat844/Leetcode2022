@@ -3,21 +3,24 @@ class Solution:
         def binary(flag):
             l = 0
             h = len(arr) - 1
-            ans = -1
+            prev = -1
+            
             while l <= h:
                 mid = (l+h) >> 1
+                
                 if arr[mid] == target:
-                    ans = mid
+                    prev = mid
                     if flag == True:
-                        l = mid + 1
-                    else :
                         h = mid - 1
-                elif arr[mid] > target:
-                    h = mid - 1
-                else :
+                    else :
+                        l = mid + 1
+                elif arr[mid] < target:
                     l = mid + 1
-            return ans
+                else :
+                    h = mid - 1
+                    
+            return prev
         
-        start = binary(False)
-        end = binary(True)
+        start = binary(True)
+        end = binary(False)
         return [start,end]

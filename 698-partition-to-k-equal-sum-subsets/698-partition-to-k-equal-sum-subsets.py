@@ -17,8 +17,7 @@ class Solution:
                 
                 while i+1 < len(nums) and nums[i+1] == nums[i]:
                     i += 1
-                if not curr or curr + nums[i] == limit:
-                    return False
+
                 i += 1
                 
             return False

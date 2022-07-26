@@ -25,10 +25,8 @@ class Solution:
                 return True
             visited[i] = False
             
-            while i + 1 < len(a) and a[i + 1] == a[i]: #pruning #1
+            while i + 1 < len(a) and a[i + 1] == a[i]:
                 i += 1
-            if not cur or cur + a[i] == limit: #pruning #2
-                return False
             i += 1
         return False
             

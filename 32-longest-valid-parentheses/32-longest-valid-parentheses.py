@@ -6,13 +6,12 @@ class Solution:
         for i in range(len(s)):
             if s[i] == "(":
                 st.append(i)
-            else:
+            else :
                 st.pop()
                 if len(st) > 0:
                     ans = max(ans,i-st[-1])
-                else :
+                else:
                     st.append(i)
-        if ans == 1:
-            return 0
+        
         return ans
         

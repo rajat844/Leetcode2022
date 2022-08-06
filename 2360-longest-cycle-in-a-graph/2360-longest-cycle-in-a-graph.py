@@ -1,27 +1,26 @@
 class Solution:
     def longestCycle(self, edges: List[int]) -> int:
-        def dfs(node,st):
+        def dfs(node,st,l):
             nonlocal ans
             if node == -1:
                 return 
             if node in visited:
                 cnt = -1
-                for i in range(len(st)):
-                    if node == st[i]:
-                        cnt = i
+                if node in st:
+                    cnt = st[node]
                 if cnt == -1:
                     return 
-                ans = max(ans,len(st)-cnt)
+                ans = max(ans,l-cnt)
                 return 
-            st.append(node)
+            st[node] = l
             visited.add(node)
-            dfs(edges[node],st)
+            dfs(edges[node],st,l+1)
                 
         ans = -1
         visited = set()
         for i in range(len(edges)):
             if i in visited:
                 continue
-            dfs(i,[])
+            dfs(i,{},0)
         
         return ans

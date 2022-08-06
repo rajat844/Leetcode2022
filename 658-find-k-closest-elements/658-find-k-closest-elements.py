@@ -9,8 +9,4 @@ class Solution:
                 l = mid + 1
             else :
                 h = mid
-        
         return arr[l:l+k]
-            
-            
-        

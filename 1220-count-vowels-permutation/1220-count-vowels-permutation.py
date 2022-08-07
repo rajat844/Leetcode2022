@@ -1,6 +1,7 @@
 class Solution:
     def countVowelPermutation(self, n: int) -> int:
-        dp = [1] * 5
+        dp = [1 for i in range(5)]
+        
         for i in range(1,n):
             a,e,i,o,u = dp
             dp[0] = e+i+u

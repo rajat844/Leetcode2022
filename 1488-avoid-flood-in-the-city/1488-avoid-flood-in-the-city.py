@@ -4,7 +4,7 @@ class Solution:
         
         mp = {}
         st = SortedList()
-        ans = [1 for i in range(len(rains))]
+        ans = [0 for i in range(len(rains))]
 
         for i in range(len(rains)):
             if rains[i] == 0:

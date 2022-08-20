@@ -1,26 +1,23 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        def recursion(i,j,index):
-            if index == len(word):
+        def helper(i,j,s):
+            if s == len(word) :
                 return True
-            if 0 <= i < len(board) and 0 <= j < len(board[0]) and board[i][j] == word[index]:
+            if 0 <= i < len(board) and 0 <= j < len(board[0]) and board[i][j] == word[s]:
                 board[i][j] = None
-                if recursion(i+1,j,index+1) == True:
+                if helper(i+1,j,s+1) or helper(i,j+1,s+1) or helper(i,j-1,s+1) or helper(i-1,j,s+1):
                     return True
-                if recursion(i-1,j,index+1) == True:
-                    return True
-                if recursion(i,j+1,index+1) == True:
-                    return True
-                if recursion(i,j-1,index+1) == True:
-                    return True
-                board[i][j] = word[index]
+                board[i][j] = word[s]
+            else:
+                return False
         
         for i in range(len(board)):
             for j in range(len(board[0])):
-                if recursion(i,j,0) == True:
+                if helper(i,j,0):
                     return True
         
         return False
+                
                 
             
             

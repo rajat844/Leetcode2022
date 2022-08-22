@@ -1,28 +1,25 @@
 class Solution:
-    def leastInterval(self,tasks, n) -> int:
-        dic = defaultdict(int)
-        for i in range(len(tasks)):
-            dic[tasks[i]] += 1
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        dic = Counter(tasks)
         st = []
         for x in dic:
-            st.append(-dic[x])
+            heapq.heappush(st,-dic[x])
         
-        heapq.heapify(st)
-        time = 0
         q = deque()
+        time = 0
         
         while len(st) > 0 or len(q) > 0:
             time += 1
             if len(st) > 0:
-                x = 1+ heapq.heappop(st)
+                x = 1 + heapq.heappop(st)
                 if x != 0:
                     q.append([x,time+n])
-                              
-            while len(q) > 0 and q[0][1] == time:
-                heapq.heappush(st,q.popleft()[0])
-        
-        return time
-                              
-                
-        
             
+            if len(q) > 0 and q[0][1] == time:
+                heapq.heappush(st,q.popleft()[0])
+                
+        return time
+                
+            
+             
+        

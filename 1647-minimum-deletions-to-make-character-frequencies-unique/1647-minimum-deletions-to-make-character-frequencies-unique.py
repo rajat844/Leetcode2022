@@ -7,9 +7,9 @@ class Solution:
         
         arr.sort(reverse = True)
         
-        print(arr)
         mx = math.inf
         ans = 0
+        
         for i in range(len(arr)):
             if mx == 0:
                 ans += arr[i]
@@ -18,9 +18,5 @@ class Solution:
                 mx -= 1
             else :
                 mx = arr[i] - 1
-                
-        return ans
-                
-            
         
-            
+        return ans

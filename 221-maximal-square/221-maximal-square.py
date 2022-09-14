@@ -1,32 +1,27 @@
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
-        rows = len(matrix)
-        cols = len(matrix[0])
+        n = len(matrix)
+        m = len(matrix[0])
         
-        dp = [[None for i in range(cols)] for j in range(rows)]
+        dp = [[None for i in range(m)]for j in range(n)]
         
-        def recursion(r,c):
-            if r >= rows or c >= cols:
-                return 0
+        for i in range(n):
+            dp[i][0] = int(matrix[i][0])
             
-            if dp[r][c] != None:
-                return dp[r][c]
+        for j in range(m):
+            dp[0][j] = int(matrix[0][j])
             
-            bottom = recursion(r+1,c)
-            right = recursion(r,c+1)
-            diag = recursion(r+1,c+1)
-            
-            dp[r][c] = 0
-            if matrix[r][c] == "1":
-                dp[r][c] = 1+ min(bottom,right,diag)
-            
-            return dp[r][c]
-        
-        recursion(0,0)
+        for i in range(1,n):
+            for j in range(1,m):
+                if matrix[i][j] == "1":
+                    dp[i][j] = 1+min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1])
+                else:
+                    dp[i][j] = 0
         
         mx = 0
-        for x in range(rows):
-            mx = max(mx,max(dp[x]))
+        for i in range(n):
+            mx = max(mx,max(dp[i]))
         
         return mx**2
+                    
         

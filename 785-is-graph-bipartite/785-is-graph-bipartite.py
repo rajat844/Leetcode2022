@@ -1,30 +1,23 @@
-from collections import deque
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
-        n = len(graph)
-        visited = [False for i in range(n)]
-        colors = [-1 for i in range(n)]
-        
-        for i in range(n):
-            if visited[i] == False:
-                visited[i] = True
-                st = deque()
-                st.append((i,0))
+        def dfs(node,c):
+            color[node] = c
+            
+            for x in graph[node]:
+                if color[x] == None:
+                    if dfs(x,1-c) == False:
+                        return False
                 
-                while len(st) > 0:
-                    node,color = st.popleft()
-                    colors[node] = color
-                    
-                    for x in graph[node]:
-                        if visited[x] == False:
-                            visited[x] = True
-                            st.append((x,1-color))
-                        elif colors[x] == color:
-                            return False
+                elif color[x] == c:
+                    return False
+            
+            return True
+        
+        color = [None for i in range(len(graph))]
+        for i in range(len(graph)):
+            if color[i] == None:
+                if dfs(i,0) == False:
+                    return False
         
         return True
-                    
-                    
-                
-        
         

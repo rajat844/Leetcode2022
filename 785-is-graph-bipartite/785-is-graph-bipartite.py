@@ -1,23 +1,30 @@
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
-        def dfs(node,c):
-            color[node] = c
+        def bfs(node):
+            st = deque()
+            st.append((node,0))
+            color[node] = 0
             
-            for x in graph[node]:
-                if color[x] == None:
-                    if dfs(x,1-c) == False:
+            while len(st) > 0:
+                curr,c = st.popleft()
+            
+                
+                for x in graph[curr]:
+                    if color[x] == None:
+                        st.append((x,1-c))
+                        color[x] = 1-c
+                    elif color[x] == c:
                         return False
                 
-                elif color[x] == c:
-                    return False
-            
             return True
         
         color = [None for i in range(len(graph))]
+        
         for i in range(len(graph)):
             if color[i] == None:
-                if dfs(i,0) == False:
+                if bfs(i) == False:
                     return False
         
         return True
+    
         

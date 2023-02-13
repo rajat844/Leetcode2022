@@ -1,17 +1,4 @@
 class Solution {
-    public int calculate(int i,boolean isSell,int[] prices,int[][] st){
-        if(i == prices.length){
-            return 0;
-        }
-        if(isSell){
-            return st[i][1] =  Math.max(prices[i] + calculate(i+1,false,prices,st), calculate(i+1,true,prices,st));
-        }
-        else{
-            return st[i][0] = Math.max(-prices[i] + calculate(i+1,true,prices,st),calculate(i+1,false,prices,st));
-        }
-        
-        
-    }
     
     public int maxProfit(int[] prices) {
         int n = prices.length;

@@ -16,13 +16,13 @@ class Solution {
     
     public long travel(HashMap<Integer,ArrayList<Integer>>st, int seats, int node, int parent){
         long pas = 1;
-        ArrayList<Integer> childs = st.get(node);
-        if(childs != null){
-        for(Integer x :childs){
+        if(st.get(node) == null) return 0;
+        
+        for(Integer x :st.get(node)){
             if(x != parent){
                 pas += travel(st,seats,x,node);
             }
-        }}
+        }
         if(node != 0) cars += (pas + seats - 1)/seats;
         return pas;
     }

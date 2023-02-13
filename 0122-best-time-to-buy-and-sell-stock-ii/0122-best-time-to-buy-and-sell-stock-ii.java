@@ -17,13 +17,16 @@ class Solution {
         int n = prices.length;
         int[][] st = new int[n+1][2];
         
-        st[n][0] = 0; st[n][1] = 0;
+        int prevbuy = 0; int prevsell = 0;
+        
         
         for(int i = n-1; i > -1; i--){
-            st[i][0] = Math.max(-prices[i] + st[i+1][1],st[i+1][0]);
-            st[i][1] = Math.max(prices[i] + st[i+1][0],st[i+1][1]); 
+            int currbuy = Math.max(-prices[i] + prevsell,prevbuy);
+            int currsell = Math.max(prices[i] + prevbuy,prevsell); 
+            
+            prevsell = currsell; prevbuy = currbuy;
         }
-        return st[0][0];
+        return prevbuy;
         
     }
 }

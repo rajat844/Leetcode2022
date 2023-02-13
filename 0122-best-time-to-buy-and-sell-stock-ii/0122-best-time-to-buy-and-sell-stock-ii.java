@@ -15,7 +15,6 @@ class Solution {
     
     public int maxProfit(int[] prices) {
         int n = prices.length;
-        int[][] st = new int[n+1][2];
         
         int prevbuy = 0; int prevsell = 0;
         

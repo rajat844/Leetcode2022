@@ -1,28 +1,27 @@
 class Solution {
     long cars = 0;
     public long minimumFuelCost(int[][] roads, int seats) {
-        HashMap<Integer,ArrayList<Integer>> st = new HashMap<Integer,ArrayList<Integer>>();
+        Map<Integer,ArrayList<Integer>> st = new HashMap<>();
         
-        for(int i = 0; i<roads.length; i++){
-            st.putIfAbsent(roads[i][0],new ArrayList<Integer>());
-            st.get(roads[i][0]).add(roads[i][1]);
-            st.putIfAbsent(roads[i][1],new ArrayList<Integer>());
-            st.get(roads[i][1]).add(roads[i][0]);
+        for(int[] road : roads){
+            st.computeIfAbsent(road[0],k -> new ArrayList<Integer>()).add(road[1]);
+            st.computeIfAbsent(road[1],k -> new ArrayList<Integer>()).add(road[0]);
         }
         
-        long pass = travel(st,seats,0,-1);
+        travel(0,-1,seats,st);
         return cars;
     }
     
-    public long travel(HashMap<Integer,ArrayList<Integer>>st, int seats, int node, int parent){
-        long pas = 1;
-        if(st.get(node) != null){
-        for(Integer x :st.get(node)){
-            if(x != parent){
-                pas += travel(st,seats,x,node);
-            }
-        }}
-        if(node != 0) cars += (pas + seats - 1)/seats;
+    public long travel(int node, int parent, int seats, Map<Integer,ArrayList<Integer>> st){
+        int pas = 1;
+        if(!st.containsKey(node)) return pas;
+        
+        for (int x : st.get(node)){
+            if(x != parent) pas += travel(x,node,seats,st);
+        }
+        
+        if(node != 0) cars += Math.ceil((double)pas / seats);
+        
         return pas;
     }
 }

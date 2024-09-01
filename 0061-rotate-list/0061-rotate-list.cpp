@@ -11,6 +11,7 @@
 class Solution {
 public:
     int findSize(ListNode* head){
+        if(!head) return 0;
         ListNode* curr = head;
         int size = 1;
         

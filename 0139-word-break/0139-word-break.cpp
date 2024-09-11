@@ -35,19 +35,15 @@ public:
         dp[n] = true;
         
         for(int i = n-1; i >= 0; i--){
-            cout << i << endl;
-            string temp = ""; 
+            string temp = "";
             for(int j = i; j < n; j++){
-                cout << j << endl;
                 temp += s[j];
                 if(isPresent(temp,wordDict)){
-                    cout << temp << endl; 
                     bool check = dp[j+1];
                     if(check) dp[i] = true;
                 }
             }
         }
-        
         
         return dp[0];
     }

@@ -1,18 +1,23 @@
 class Solution {
 public:
-    void generatePowerSet(int i, vector<int> nums, vector<int> st, vector<vector<int>> &ans){
-        if(i == 0){
-            ans.push_back(st);
-            return;
-        }
-        generatePowerSet(i-1,nums,st,ans);
-        st.push_back(nums[nums.size() - i]);
-        generatePowerSet(i-1,nums,st,ans);
-    }
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<vector<int>> ans;
+        int n = nums.size();
         
-        generatePowerSet(nums.size(),nums,{}, ans);
+        int subsets = (1 << n);
+        
+        for(int i = 0; i < subsets; i++){
+            int x = i;
+            int j = 0;
+            vector<int> temp;
+            while(x){
+                if((x & 1) != 0) temp.push_back(nums[j]);
+                j += 1;
+                x = (x >> 1);
+            }
+            ans.push_back(temp);
+        }
+        
         return ans;
         
     }

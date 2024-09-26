@@ -6,7 +6,7 @@ public:
         
         for(int x : nums) xorNumber = xorNumber ^ x;
         
-        long rightMostSetBit = xorNumber & (-xorNumber);
+        long rightMostSetBit = (xorNumber & (xorNumber - 1)) ^ xorNumber ;
         
         
         int bucket1 = 0;

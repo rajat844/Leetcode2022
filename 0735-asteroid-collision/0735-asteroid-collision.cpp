@@ -1,26 +1,18 @@
 class Solution {
 public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
-        vector<int> st;
+        vector<int> ans;
         
         for(int x : asteroids){
-            if(x > 0 ){
-                st.push_back(x);
-            }
-            
+            if(x > 0) ans.push_back(x);
             else{
-                int prev = 0;
-                while(st.size() > 0 && st.back() > 0 && st.back() < abs(x)) {
-                    cout << prev << endl;
-                    prev = st.back();
-                    st.pop_back();
-                }
-                if(st.size() > 0 && st.back() == abs(x))
-                    st.pop_back();
-                else if(st.size() == 0 || st.back() < 0)
-                    st.push_back(x);
+                while(ans.size() > 0 && ans.back() > 0 && ans.back() < abs(x))ans.pop_back();
+                if(ans.size() > 0 && ans.back() == abs(x)) ans.pop_back();
+                else if(ans.size() == 0 || ans.back() < 0) ans.push_back(x);
             }
         }
-        return st;
+        
+        return ans;
+        
     }
 };

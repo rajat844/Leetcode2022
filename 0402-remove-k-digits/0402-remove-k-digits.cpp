@@ -9,8 +9,6 @@ public:
                 k--;
             }
             
-            if(st.size() == 0 && x == '0')
-                continue;
             st.push_back(x);
         }
         
@@ -22,6 +20,8 @@ public:
         string ans;
         
         for(char x : st){
+            if(ans.size() == 0 && x == '0')
+                continue;
             ans += x;
         }
         

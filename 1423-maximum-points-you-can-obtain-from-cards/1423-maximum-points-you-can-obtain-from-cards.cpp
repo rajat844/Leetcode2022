@@ -23,9 +23,6 @@ public:
         for(int x : cardPoints){
             res += x;
         }
-        
-        if(ans != INT_MAX)  return res - ans;
-        else return res;
-        
+        return res - ans;        
     }
 };

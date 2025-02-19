@@ -5,10 +5,9 @@ public:
         string ans = "";
 
         while(i < s.size()){
-            string temp = "";
+            string temp;
             if(i + 2 < s.size() && s[i + 2] == '#'){
-                temp += s[i];
-                temp += s[i+1];
+                temp = s.substr(i,2);
                 i += 3;
             }
             else {

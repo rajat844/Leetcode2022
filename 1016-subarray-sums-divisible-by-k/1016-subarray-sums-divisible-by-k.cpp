@@ -1,7 +1,7 @@
 class Solution {
 public:
     int subarraysDivByK(vector<int>& nums, int k) {
-        map<int,int> mp;
+        vector<int> mp(k,0);
         mp[0] = 1;
 
         int sum = 0;
@@ -11,10 +11,8 @@ public:
             sum = (sum + nums[i]) % k;
             if(sum < 0) sum += k; 
 
-            if(mp.find(sum) != mp.end()){
-                count += mp[sum];
-            }
-            
+            count += mp[sum];
+
             mp[sum] += 1;
         }
 

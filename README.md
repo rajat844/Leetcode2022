@@ -6,6 +6,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## String
 |  |
 | ------- |
+| [1170-shortest-common-supersequence](https://github.com/rajat844/Leetcode2022/tree/master/1170-shortest-common-supersequence) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [1434-decrypt-string-from-alphabet-to-integer-mapping](https://github.com/rajat844/Leetcode2022/tree/master/1434-decrypt-string-from-alphabet-to-integer-mapping) |
 | [1516-the-k-th-lexicographical-string-of-all-happy-strings-of-length-n](https://github.com/rajat844/Leetcode2022/tree/master/1516-the-k-th-lexicographical-string-of-all-happy-strings-of-length-n) |
@@ -55,5 +56,6 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Dynamic Programming
 |  |
 | ------- |
+| [1170-shortest-common-supersequence](https://github.com/rajat844/Leetcode2022/tree/master/1170-shortest-common-supersequence) |
 | [1631-number-of-sub-arrays-with-odd-sum](https://github.com/rajat844/Leetcode2022/tree/master/1631-number-of-sub-arrays-with-odd-sum) |
 <!---LeetCode Topics End-->

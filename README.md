@@ -6,6 +6,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## String
 |  |
 | ------- |
+| [0696-count-binary-substrings](https://github.com/rajat844/Leetcode2022/tree/master/0696-count-binary-substrings) |
 | [1170-shortest-common-supersequence](https://github.com/rajat844/Leetcode2022/tree/master/1170-shortest-common-supersequence) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [1434-decrypt-string-from-alphabet-to-integer-mapping](https://github.com/rajat844/Leetcode2022/tree/master/1434-decrypt-string-from-alphabet-to-integer-mapping) |
@@ -58,4 +59,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [1170-shortest-common-supersequence](https://github.com/rajat844/Leetcode2022/tree/master/1170-shortest-common-supersequence) |
 | [1631-number-of-sub-arrays-with-odd-sum](https://github.com/rajat844/Leetcode2022/tree/master/1631-number-of-sub-arrays-with-odd-sum) |
+## Two Pointers
+|  |
+| ------- |
+| [0696-count-binary-substrings](https://github.com/rajat844/Leetcode2022/tree/master/0696-count-binary-substrings) |
 <!---LeetCode Topics End-->

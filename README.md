@@ -19,6 +19,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0560-subarray-sum-equals-k](https://github.com/rajat844/Leetcode2022/tree/master/0560-subarray-sum-equals-k) |
+| [0906-walking-robot-simulation](https://github.com/rajat844/Leetcode2022/tree/master/0906-walking-robot-simulation) |
 | [1016-subarray-sums-divisible-by-k](https://github.com/rajat844/Leetcode2022/tree/master/1016-subarray-sums-divisible-by-k) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [1631-number-of-sub-arrays-with-odd-sum](https://github.com/rajat844/Leetcode2022/tree/master/1631-number-of-sub-arrays-with-odd-sum) |
@@ -26,6 +27,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0560-subarray-sum-equals-k](https://github.com/rajat844/Leetcode2022/tree/master/0560-subarray-sum-equals-k) |
+| [0906-walking-robot-simulation](https://github.com/rajat844/Leetcode2022/tree/master/0906-walking-robot-simulation) |
 | [1016-subarray-sums-divisible-by-k](https://github.com/rajat844/Leetcode2022/tree/master/1016-subarray-sums-divisible-by-k) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 ## Depth-First Search
@@ -63,4 +65,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0696-count-binary-substrings](https://github.com/rajat844/Leetcode2022/tree/master/0696-count-binary-substrings) |
+## Simulation
+|  |
+| ------- |
+| [0906-walking-robot-simulation](https://github.com/rajat844/Leetcode2022/tree/master/0906-walking-robot-simulation) |
 <!---LeetCode Topics End-->

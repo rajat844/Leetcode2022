@@ -18,6 +18,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Array
 |  |
 | ------- |
+| [0137-single-number-ii](https://github.com/rajat844/Leetcode2022/tree/master/0137-single-number-ii) |
 | [0560-subarray-sum-equals-k](https://github.com/rajat844/Leetcode2022/tree/master/0560-subarray-sum-equals-k) |
 | [0906-walking-robot-simulation](https://github.com/rajat844/Leetcode2022/tree/master/0906-walking-robot-simulation) |
 | [1016-subarray-sums-divisible-by-k](https://github.com/rajat844/Leetcode2022/tree/master/1016-subarray-sums-divisible-by-k) |
@@ -69,4 +70,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0906-walking-robot-simulation](https://github.com/rajat844/Leetcode2022/tree/master/0906-walking-robot-simulation) |
+## Bit Manipulation
+|  |
+| ------- |
+| [0137-single-number-ii](https://github.com/rajat844/Leetcode2022/tree/master/0137-single-number-ii) |
 <!---LeetCode Topics End-->

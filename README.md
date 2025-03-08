@@ -11,6 +11,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [1434-decrypt-string-from-alphabet-to-integer-mapping](https://github.com/rajat844/Leetcode2022/tree/master/1434-decrypt-string-from-alphabet-to-integer-mapping) |
 | [1516-the-k-th-lexicographical-string-of-all-happy-strings-of-length-n](https://github.com/rajat844/Leetcode2022/tree/master/1516-the-k-th-lexicographical-string-of-all-happy-strings-of-length-n) |
+| [2463-minimum-recolors-to-get-k-consecutive-black-blocks](https://github.com/rajat844/Leetcode2022/tree/master/2463-minimum-recolors-to-get-k-consecutive-black-blocks) |
 ## Backtracking
 |  |
 | ------- |
@@ -76,4 +77,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0137-single-number-ii](https://github.com/rajat844/Leetcode2022/tree/master/0137-single-number-ii) |
+## Sliding Window
+|  |
+| ------- |
+| [2463-minimum-recolors-to-get-k-consecutive-black-blocks](https://github.com/rajat844/Leetcode2022/tree/master/2463-minimum-recolors-to-get-k-consecutive-black-blocks) |
 <!---LeetCode Topics End-->

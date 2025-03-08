@@ -21,6 +21,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0031-next-permutation](https://github.com/rajat844/Leetcode2022/tree/master/0031-next-permutation) |
 | [0137-single-number-ii](https://github.com/rajat844/Leetcode2022/tree/master/0137-single-number-ii) |
+| [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
 | [0560-subarray-sum-equals-k](https://github.com/rajat844/Leetcode2022/tree/master/0560-subarray-sum-equals-k) |
 | [0906-walking-robot-simulation](https://github.com/rajat844/Leetcode2022/tree/master/0906-walking-robot-simulation) |
 | [1016-subarray-sums-divisible-by-k](https://github.com/rajat844/Leetcode2022/tree/master/1016-subarray-sums-divisible-by-k) |
@@ -40,6 +41,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Breadth-First Search
 |  |
 | ------- |
+| [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 ## Union Find
 |  |
@@ -81,4 +83,12 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [2463-minimum-recolors-to-get-k-consecutive-black-blocks](https://github.com/rajat844/Leetcode2022/tree/master/2463-minimum-recolors-to-get-k-consecutive-black-blocks) |
+## Heap (Priority Queue)
+|  |
+| ------- |
+| [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
+## Matrix
+|  |
+| ------- |
+| [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
 <!---LeetCode Topics End-->

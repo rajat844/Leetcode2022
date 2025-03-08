@@ -20,6 +20,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0031-next-permutation](https://github.com/rajat844/Leetcode2022/tree/master/0031-next-permutation) |
+| [0042-trapping-rain-water](https://github.com/rajat844/Leetcode2022/tree/master/0042-trapping-rain-water) |
 | [0137-single-number-ii](https://github.com/rajat844/Leetcode2022/tree/master/0137-single-number-ii) |
 | [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
 | [0560-subarray-sum-equals-k](https://github.com/rajat844/Leetcode2022/tree/master/0560-subarray-sum-equals-k) |
@@ -64,12 +65,14 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Dynamic Programming
 |  |
 | ------- |
+| [0042-trapping-rain-water](https://github.com/rajat844/Leetcode2022/tree/master/0042-trapping-rain-water) |
 | [1170-shortest-common-supersequence](https://github.com/rajat844/Leetcode2022/tree/master/1170-shortest-common-supersequence) |
 | [1631-number-of-sub-arrays-with-odd-sum](https://github.com/rajat844/Leetcode2022/tree/master/1631-number-of-sub-arrays-with-odd-sum) |
 ## Two Pointers
 |  |
 | ------- |
 | [0031-next-permutation](https://github.com/rajat844/Leetcode2022/tree/master/0031-next-permutation) |
+| [0042-trapping-rain-water](https://github.com/rajat844/Leetcode2022/tree/master/0042-trapping-rain-water) |
 | [0696-count-binary-substrings](https://github.com/rajat844/Leetcode2022/tree/master/0696-count-binary-substrings) |
 ## Simulation
 |  |
@@ -91,4 +94,12 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
+## Stack
+|  |
+| ------- |
+| [0042-trapping-rain-water](https://github.com/rajat844/Leetcode2022/tree/master/0042-trapping-rain-water) |
+## Monotonic Stack
+|  |
+| ------- |
+| [0042-trapping-rain-water](https://github.com/rajat844/Leetcode2022/tree/master/0042-trapping-rain-water) |
 <!---LeetCode Topics End-->

@@ -31,6 +31,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
 | [1631-number-of-sub-arrays-with-odd-sum](https://github.com/rajat844/Leetcode2022/tree/master/1631-number-of-sub-arrays-with-odd-sum) |
+| [1876-map-of-highest-peak](https://github.com/rajat844/Leetcode2022/tree/master/1876-map-of-highest-peak) |
 | [3483-alternating-groups-ii](https://github.com/rajat844/Leetcode2022/tree/master/3483-alternating-groups-ii) |
 ## Hash Table
 |  |
@@ -52,6 +53,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0695-max-area-of-island](https://github.com/rajat844/Leetcode2022/tree/master/0695-max-area-of-island) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
+| [1876-map-of-highest-peak](https://github.com/rajat844/Leetcode2022/tree/master/1876-map-of-highest-peak) |
 ## Union Find
 |  |
 | ------- |
@@ -107,6 +109,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
 | [0695-max-area-of-island](https://github.com/rajat844/Leetcode2022/tree/master/0695-max-area-of-island) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
+| [1876-map-of-highest-peak](https://github.com/rajat844/Leetcode2022/tree/master/1876-map-of-highest-peak) |
 ## Stack
 |  |
 | ------- |

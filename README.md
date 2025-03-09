@@ -25,6 +25,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0137-single-number-ii](https://github.com/rajat844/Leetcode2022/tree/master/0137-single-number-ii) |
 | [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
 | [0560-subarray-sum-equals-k](https://github.com/rajat844/Leetcode2022/tree/master/0560-subarray-sum-equals-k) |
+| [0695-max-area-of-island](https://github.com/rajat844/Leetcode2022/tree/master/0695-max-area-of-island) |
 | [0906-walking-robot-simulation](https://github.com/rajat844/Leetcode2022/tree/master/0906-walking-robot-simulation) |
 | [1016-subarray-sums-divisible-by-k](https://github.com/rajat844/Leetcode2022/tree/master/1016-subarray-sums-divisible-by-k) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
@@ -41,17 +42,20 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Depth-First Search
 |  |
 | ------- |
+| [0695-max-area-of-island](https://github.com/rajat844/Leetcode2022/tree/master/0695-max-area-of-island) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
 ## Breadth-First Search
 |  |
 | ------- |
 | [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
+| [0695-max-area-of-island](https://github.com/rajat844/Leetcode2022/tree/master/0695-max-area-of-island) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
 ## Union Find
 |  |
 | ------- |
+| [0695-max-area-of-island](https://github.com/rajat844/Leetcode2022/tree/master/0695-max-area-of-island) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
 ## Sorting
@@ -101,6 +105,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
+| [0695-max-area-of-island](https://github.com/rajat844/Leetcode2022/tree/master/0695-max-area-of-island) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
 ## Stack
 |  |

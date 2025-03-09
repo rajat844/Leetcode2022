@@ -5,20 +5,18 @@ public:
         int n = colors.size();
 
         int i = 0;
-        int j = 1;
 
-        while (i < n + k - 1 && j < n + k - 1) {
+        for (int j = 1; j < (n + k - 1); j++) {
             if (colors[j % n] != colors[(j - 1) % n]) {
-                j += 1;
-                if (j - i == k) {
+                if (j - i + 1 == k) {
                     ans += 1;
                     i += 1;
                 }
             } else {
                 i = j;
-                j = j + 1;
             }
         }
+
 
         return ans;
     }

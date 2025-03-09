@@ -11,8 +11,7 @@ public:
         int m = isWater[0].size();
 
         vector<vector<int>> heights(n, vector<int>(m, -1));
-        priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, Comp>
-            q;
+        queue<tuple<int, int, int>> q;
         vector<vector<int>> dir = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
         for (int i = 0; i < n; i++) {
@@ -25,9 +24,9 @@ public:
         }
 
         while (!q.empty()) {
-            int h = get<0>(q.top());
-            int r = get<1>(q.top());
-            int c = get<2>(q.top());
+            int h = get<0>(q.front());
+            int r = get<1>(q.front());
+            int c = get<2>(q.front());
             q.pop();
 
             for (int i = 0; i < 4; i++) {

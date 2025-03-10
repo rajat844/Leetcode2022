@@ -29,6 +29,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0695-max-area-of-island](https://github.com/rajat844/Leetcode2022/tree/master/0695-max-area-of-island) |
 | [0906-walking-robot-simulation](https://github.com/rajat844/Leetcode2022/tree/master/0906-walking-robot-simulation) |
 | [1016-subarray-sums-divisible-by-k](https://github.com/rajat844/Leetcode2022/tree/master/1016-subarray-sums-divisible-by-k) |
+| [1034-subarrays-with-k-different-integers](https://github.com/rajat844/Leetcode2022/tree/master/1034-subarrays-with-k-different-integers) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
 | [1631-number-of-sub-arrays-with-odd-sum](https://github.com/rajat844/Leetcode2022/tree/master/1631-number-of-sub-arrays-with-odd-sum) |
@@ -40,6 +41,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0560-subarray-sum-equals-k](https://github.com/rajat844/Leetcode2022/tree/master/0560-subarray-sum-equals-k) |
 | [0906-walking-robot-simulation](https://github.com/rajat844/Leetcode2022/tree/master/0906-walking-robot-simulation) |
 | [1016-subarray-sums-divisible-by-k](https://github.com/rajat844/Leetcode2022/tree/master/1016-subarray-sums-divisible-by-k) |
+| [1034-subarrays-with-k-different-integers](https://github.com/rajat844/Leetcode2022/tree/master/1034-subarrays-with-k-different-integers) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [3569-count-of-substrings-containing-every-vowel-and-k-consonants-ii](https://github.com/rajat844/Leetcode2022/tree/master/3569-count-of-substrings-containing-every-vowel-and-k-consonants-ii) |
 ## Depth-First Search
@@ -99,6 +101,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Sliding Window
 |  |
 | ------- |
+| [1034-subarrays-with-k-different-integers](https://github.com/rajat844/Leetcode2022/tree/master/1034-subarrays-with-k-different-integers) |
 | [2463-minimum-recolors-to-get-k-consecutive-black-blocks](https://github.com/rajat844/Leetcode2022/tree/master/2463-minimum-recolors-to-get-k-consecutive-black-blocks) |
 | [3483-alternating-groups-ii](https://github.com/rajat844/Leetcode2022/tree/master/3483-alternating-groups-ii) |
 | [3569-count-of-substrings-containing-every-vowel-and-k-consonants-ii](https://github.com/rajat844/Leetcode2022/tree/master/3569-count-of-substrings-containing-every-vowel-and-k-consonants-ii) |
@@ -126,5 +129,6 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Counting
 |  |
 | ------- |
+| [1034-subarrays-with-k-different-integers](https://github.com/rajat844/Leetcode2022/tree/master/1034-subarrays-with-k-different-integers) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
 <!---LeetCode Topics End-->

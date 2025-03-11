@@ -22,6 +22,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0031-next-permutation](https://github.com/rajat844/Leetcode2022/tree/master/0031-next-permutation) |
 | [0042-trapping-rain-water](https://github.com/rajat844/Leetcode2022/tree/master/0042-trapping-rain-water) |
+| [0055-jump-game](https://github.com/rajat844/Leetcode2022/tree/master/0055-jump-game) |
 | [0084-largest-rectangle-in-histogram](https://github.com/rajat844/Leetcode2022/tree/master/0084-largest-rectangle-in-histogram) |
 | [0137-single-number-ii](https://github.com/rajat844/Leetcode2022/tree/master/0137-single-number-ii) |
 | [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
@@ -82,6 +83,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0042-trapping-rain-water](https://github.com/rajat844/Leetcode2022/tree/master/0042-trapping-rain-water) |
+| [0055-jump-game](https://github.com/rajat844/Leetcode2022/tree/master/0055-jump-game) |
 | [1170-shortest-common-supersequence](https://github.com/rajat844/Leetcode2022/tree/master/1170-shortest-common-supersequence) |
 | [1631-number-of-sub-arrays-with-odd-sum](https://github.com/rajat844/Leetcode2022/tree/master/1631-number-of-sub-arrays-with-odd-sum) |
 ## Two Pointers
@@ -131,4 +133,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [1034-subarrays-with-k-different-integers](https://github.com/rajat844/Leetcode2022/tree/master/1034-subarrays-with-k-different-integers) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
+## Greedy
+|  |
+| ------- |
+| [0055-jump-game](https://github.com/rajat844/Leetcode2022/tree/master/0055-jump-game) |
 <!---LeetCode Topics End-->

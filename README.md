@@ -37,6 +37,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
 | [1631-number-of-sub-arrays-with-odd-sum](https://github.com/rajat844/Leetcode2022/tree/master/1631-number-of-sub-arrays-with-odd-sum) |
 | [1876-map-of-highest-peak](https://github.com/rajat844/Leetcode2022/tree/master/1876-map-of-highest-peak) |
+| [2614-maximum-count-of-positive-integer-and-negative-integer](https://github.com/rajat844/Leetcode2022/tree/master/2614-maximum-count-of-positive-integer-and-negative-integer) |
 | [3483-alternating-groups-ii](https://github.com/rajat844/Leetcode2022/tree/master/3483-alternating-groups-ii) |
 ## Hash Table
 |  |
@@ -138,9 +139,14 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [1034-subarrays-with-k-different-integers](https://github.com/rajat844/Leetcode2022/tree/master/1034-subarrays-with-k-different-integers) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
+| [2614-maximum-count-of-positive-integer-and-negative-integer](https://github.com/rajat844/Leetcode2022/tree/master/2614-maximum-count-of-positive-integer-and-negative-integer) |
 ## Greedy
 |  |
 | ------- |
 | [0045-jump-game-ii](https://github.com/rajat844/Leetcode2022/tree/master/0045-jump-game-ii) |
 | [0055-jump-game](https://github.com/rajat844/Leetcode2022/tree/master/0055-jump-game) |
+## Binary Search
+|  |
+| ------- |
+| [2614-maximum-count-of-positive-integer-and-negative-integer](https://github.com/rajat844/Leetcode2022/tree/master/2614-maximum-count-of-positive-integer-and-negative-integer) |
 <!---LeetCode Topics End-->

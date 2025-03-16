@@ -159,4 +159,12 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0226-invert-binary-tree](https://github.com/rajat844/Leetcode2022/tree/master/0226-invert-binary-tree) |
+## Linked List
+|  |
+| ------- |
+| [0206-reverse-linked-list](https://github.com/rajat844/Leetcode2022/tree/master/0206-reverse-linked-list) |
+## Recursion
+|  |
+| ------- |
+| [0206-reverse-linked-list](https://github.com/rajat844/Leetcode2022/tree/master/0206-reverse-linked-list) |
 <!---LeetCode Topics End-->

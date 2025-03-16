@@ -10,59 +10,33 @@
  */
 class Solution {
 public:
-    ListNode* reverse(ListNode* head){
-        if(!head || !head->next) return head;
-        ListNode* curr = head;
-        ListNode* prev = nullptr;
-        
-        while(curr){
-            ListNode* nextNode = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = nextNode;
-        }
-        
-        return prev;
-    }
-    
-    ListNode* findKthNode(ListNode* head,int k){
-        if(!head || !head->next) return nullptr;
-        
-        ListNode* curr = head;
-        while(curr && k > 1){
-            curr = curr->next;
-            k--;
-        }
-        return curr;      
-    }
-    
     ListNode* reverseKGroup(ListNode* head, int k) {
-        if(!head || !head->next) return head;
-        
+        if (!head || k == 1)
+            return head;
+        int count = 0;
         ListNode* curr = head;
-        ListNode* prev = new ListNode();
-        prev->next = head;
-        
-        while(curr){
-            ListNode* kthNode = findKthNode(curr,k);
-            if(kthNode){
-                ListNode* nextNode = kthNode->next;
-                kthNode->next = nullptr;
-                ListNode* reverseList = reverse(curr);
-                if(head == prev->next){
-                    head = reverseList;
-                }
-                prev->next = reverseList;
-                curr->next = nextNode;
-                prev = curr;
-                curr = nextNode;
-            }
-            else{
-                break;   
-            }
+        while (curr) {
+            curr = curr->next;
+            count += 1;
         }
-        return head;
-        
+
+        int x = count / k;
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode* prev = dummy;
+        curr = head;
+
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < k - 1; j++) {
+                ListNode* nextNode = curr->next;
+                curr->next = nextNode->next;
+                nextNode->next = prev->next;
+                prev->next = nextNode;
+            }
+            prev = curr;
+            curr = curr->next;
+        }
+
+        return dummy->next;
     }
-    
 };

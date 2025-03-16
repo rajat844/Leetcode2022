@@ -52,12 +52,14 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Depth-First Search
 |  |
 | ------- |
+| [0226-invert-binary-tree](https://github.com/rajat844/Leetcode2022/tree/master/0226-invert-binary-tree) |
 | [0695-max-area-of-island](https://github.com/rajat844/Leetcode2022/tree/master/0695-max-area-of-island) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
 | [1396-count-servers-that-communicate](https://github.com/rajat844/Leetcode2022/tree/master/1396-count-servers-that-communicate) |
 ## Breadth-First Search
 |  |
 | ------- |
+| [0226-invert-binary-tree](https://github.com/rajat844/Leetcode2022/tree/master/0226-invert-binary-tree) |
 | [0407-trapping-rain-water-ii](https://github.com/rajat844/Leetcode2022/tree/master/0407-trapping-rain-water-ii) |
 | [0695-max-area-of-island](https://github.com/rajat844/Leetcode2022/tree/master/0695-max-area-of-island) |
 | [1308-smallest-string-with-swaps](https://github.com/rajat844/Leetcode2022/tree/master/1308-smallest-string-with-swaps) |
@@ -149,4 +151,12 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [2614-maximum-count-of-positive-integer-and-negative-integer](https://github.com/rajat844/Leetcode2022/tree/master/2614-maximum-count-of-positive-integer-and-negative-integer) |
+## Tree
+|  |
+| ------- |
+| [0226-invert-binary-tree](https://github.com/rajat844/Leetcode2022/tree/master/0226-invert-binary-tree) |
+## Binary Tree
+|  |
+| ------- |
+| [0226-invert-binary-tree](https://github.com/rajat844/Leetcode2022/tree/master/0226-invert-binary-tree) |
 <!---LeetCode Topics End-->
